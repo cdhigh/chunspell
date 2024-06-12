@@ -26,7 +26,7 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt update
-          sudo apt install -y autoconf automake pkg-config libtool libhunspell-dev python3-dev
+          sudo apt install -y autoconf automake gettext pkg-config libtool libhunspell-dev python3-dev
 
       - name: Set up QEMU
         if: runner.os == 'Linux'
@@ -39,7 +39,7 @@ jobs:
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew update
-          brew install autoconf automake pkg-config libtool hunspell python
+          brew install autopoint autoconf automake gettext pkg-config libtool hunspell python
 
       - name: Install Python
         uses: actions/setup-python@v5
@@ -77,11 +77,9 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Build source distribution
+      - name: Create source tarball
         run: |
-          # FIXME: setuptools was removed starting with Python 3.12
-          pip install --upgrade --force setuptools
-          python setup.py sdist
+          tar -czvf source_code.tar.gz .
 
       - name: Store the source distribution
         uses: actions/upload-artifact@v4
