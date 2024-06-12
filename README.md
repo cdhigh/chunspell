@@ -1,12 +1,16 @@
-[![Build Status](https://travis-ci.org/MSeal/cython_hunspell.svg?branch=master)](https://travis-ci.org/MSeal/cython_hunspell)
-[![PyPI version shields.io](https://img.shields.io/pypi/v/CyHunspell.svg)](https://pypi.python.org/pypi/CyHunspell/)
-[![PyPI pyversions](https://img.shields.io/pypi/pyversions/CyHunspell.svg)](https://pypi.python.org/pypi/CyHunspell/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # CyHunspell
 Cython wrapper on Hunspell Dictionary
 
 ## Description
+
+This fork is based on <https://github.com/MSeal/cython_hunspell> and modified to reduce dependencies by removing caching and batch processing functionalities. Apart from Hunspell itself, there are no other third-party dependencies.
+```bash
+sudo apt install automake pkg-config libtool libhunspell-dev
+pip install https://github.com/cdhigh/cython_hunspell/archive/refs/tags/2.0.3.tar.gz
+```
+-------------------------------------------------
+
 This repository provides a wrapper on Hunspell to be used natively in Python. The
 module uses cython to link between the C++ and Python code, with some additional
 features. There's very little Python overhead as all the heavy lifting is done

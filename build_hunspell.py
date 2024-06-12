@@ -19,7 +19,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 def include_dirs():
     return [
         os.path.abspath(os.path.join(BASE_DIR, 'hunspell')),
-        os.path.abspath(os.path.join(BASE_DIR, 'external', 'hunspell-1.7.0', 'src')),
+        os.path.abspath(os.path.join(BASE_DIR, 'external', 'hunspell-1.7.2', 'src')),
     ]
 
 def run_proc_delay_print(*args):
@@ -47,9 +47,9 @@ def build_hunspell_package(directory, force_build=False):
         export_lib_name = ':'+hunspell_library_name
         build_lib_path = os.path.join(BASE_DIR, 'external', 'build', 'lib', 'libhunspell-1.7.so.0.0.1')
     else: # OSX
-        hunspell_library_name = 'libhunspell-1.7.0.dylib'
-        export_lib_name = 'hunspell-1.7.0'
-        build_lib_path = os.path.join(BASE_DIR, 'external', 'build', 'lib', 'libhunspell-1.7.0.dylib')
+        hunspell_library_name = 'libhunspell-1.7.2.dylib'
+        export_lib_name = 'hunspell-1.7.2'
+        build_lib_path = os.path.join(BASE_DIR, 'external', 'build', 'lib', 'libhunspell-1.7.2.dylib')
     hunspell_so_path = os.path.join(hunspell_so_dir, hunspell_library_name)
 
     olddir = os.getcwd()
@@ -93,9 +93,9 @@ def pkgconfig(**kw):
     #     for filename in os.listdir(os.path.join(BASE_DIR, 'libs', 'msvc')):
     #         shutil.copyfile(os.path.join(BASE_DIR, 'libs', 'msvc', filename), os.path.join(BASE_DIR, 'hunspell', filename))
 
-    if not os.path.exists(os.path.join(BASE_DIR, 'external', 'hunspell-1.7.0')):
+    if not os.path.exists(os.path.join(BASE_DIR, 'external', 'hunspell-1.7.2')):
         # Prepare for hunspell if it's missing
-        download_and_extract('https://github.com/hunspell/hunspell/archive/v1.7.0.tar.gz',
+        download_and_extract('https://github.com/hunspell/hunspell/archive/v1.7.2.tar.gz',
             os.path.join(BASE_DIR, 'external'))
         kw['include_dirs'] = include_dirs()
 
@@ -108,7 +108,7 @@ def pkgconfig(**kw):
         force_build = os.environ.get('CYHUNSPELL_FORCE_BUILD', False)
         if force_build == '0' or force_build == 0:
             force_build = False
-        lib_name, lib_path = build_hunspell_package(os.path.join(BASE_DIR, 'external', 'hunspell-1.7.0'), force_build)
+        lib_name, lib_path = build_hunspell_package(os.path.join(BASE_DIR, 'external', 'hunspell-1.7.2'), force_build)
         kw['library_dirs'] = [lib_path]
         kw['libraries'] = [lib_name]
 
@@ -125,7 +125,7 @@ def get_build_dir():
 
 def repair_darwin_link_dep_path():
     # Needed for darwin generated SO files to correctly look in the @loader_path for shared dependencies
-    build_hunspell_lib_path = os.path.join(BASE_DIR, 'external', 'build', 'lib', 'libhunspell-1.7.0.dylib')
+    build_hunspell_lib_path = os.path.join(BASE_DIR, 'external', 'build', 'lib', 'libhunspell-1.7.2.dylib')
     for lib_path in (
             list(glob.glob(os.path.join(BASE_DIR, 'hunspell', '**', '*.so'), recursive=True)) +
             list(glob.glob(os.path.join(get_build_dir(), '**', '*.so'), recursive=True)
@@ -139,7 +139,7 @@ def repair_darwin_link_dep_path():
         run_proc_delay_print('otool', '-L', lib_path)
 
         run_proc_delay_print('install_name_tool', '-id', '@loader_path/{}'.format(lib_name), lib_path)
-        run_proc_delay_print('install_name_tool', '-change', build_hunspell_lib_path, '@loader_path/libhunspell-1.7.0.dylib', lib_path)
+        run_proc_delay_print('install_name_tool', '-change', build_hunspell_lib_path, '@loader_path/libhunspell-1.7.2.dylib', lib_path)
 
         print("Changed lib '{}' id:".format(lib_name))
         run_proc_delay_print('otool', '-D', lib_path)
@@ -159,7 +159,7 @@ def repair_darwin_link_dep_path():
         run_proc_delay_print('otool', '-L', lib_path)
 
         run_proc_delay_print('install_name_tool', '-id', '@loader_path/{}'.format(lib_name), lib_path)
-        run_proc_delay_print('install_name_tool', '-change', build_hunspell_lib_path, '@loader_path/libhunspell-1.7.0.dylib', lib_path)
+        run_proc_delay_print('install_name_tool', '-change', build_hunspell_lib_path, '@loader_path/libhunspell-1.7.2.dylib', lib_path)
 
         print("Changed lib '{}' id:".format(lib_name))
         run_proc_delay_print('otool', '-D', lib_path)

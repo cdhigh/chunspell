@@ -55,9 +55,6 @@ force_rebuild = '--force' in sys.argv or '-f' in sys.argv and building
 datatypes = ['*.aff', '*.dic', '*.pxd', '*.pyx', '*.pyd', '*.pxd', '*.so', '*.so.*', '*.dylib', '*.dylib.*', '*.lib', '*.hpp', '*.cpp']
 packages = find_packages(exclude=['*.tests', '*.tests.*', 'tests.*', 'tests'])
 packages.append('hunspell.dictionaries')
-required = [req.strip() for req in read('requirements.txt').splitlines() if req.strip()]
-required_dev = [req.strip() for req in read('requirements-dev.txt').splitlines() if req.strip()]
-required_test = [req.strip() for req in read('requirements-test.txt').splitlines() if req.strip()]
 package_data = {'' : datatypes}
 
 if building_ext:
@@ -118,12 +115,7 @@ setup(
     long_description=read(os.path.join(BASE_DIR, 'README.md')),
     long_description_content_type='text/markdown',
     ext_modules=ext_modules,
-    install_requires=required,
     cmdclass={ 'build_ext': build_ext_compiler_check, 'build': build_darwin_fix, 'bdist_wheel': bdist_wheel },
-    extras_require={
-        'dev': required_dev,
-        'test': required_test,
-    },
     license='MIT + MPL 1.1/GPL 2.0/LGPL 2.1',
     packages=packages,
     test_suite='tests',
