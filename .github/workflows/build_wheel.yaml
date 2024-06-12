@@ -26,15 +26,7 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt update
-          sudo apt install -y autoconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev
-
-      - name: Run autoreconf with environment variable
-        if: runner.os == 'Linux'
-        run: |
-          export PATH="/usr/local/bin:$PATH"
-          autoreconf -vfi
-        env:
-          PATH: /usr/local/bin:$PATH
+          sudo apt install -y autoconf dh-autoreconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev
 
       - name: Set up QEMU
         if: runner.os == 'Linux'
