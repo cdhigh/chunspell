@@ -86,7 +86,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: python-package-distributions-source
-          path: dist
+          path: chunspell.tar.gz
           retention-days: 4
 
   publish:
