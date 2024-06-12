@@ -27,8 +27,9 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y autoconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev
-          
+
       - name: Run autoreconf with environment variable
+        if: runner.os == 'Linux'
         run: |
           export PATH="/usr/local/bin:$PATH"
           autoreconf -vfi
