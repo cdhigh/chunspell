@@ -27,6 +27,13 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y autoconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev
+          
+      - name: Run autoreconf with environment variable
+        run: |
+          export PATH="/usr/local/bin:$PATH"
+          autoreconf -vfi
+        env:
+          PATH: /usr/local/bin:$PATH
 
       - name: Set up QEMU
         if: runner.os == 'Linux'
