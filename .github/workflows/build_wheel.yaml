@@ -22,11 +22,24 @@ jobs:
           ref: ${{ github.event.inputs.branch }}
           submodules: true
 
+      - name: Set up dependencies on Linux
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt update
+          sudo apt install -y autoconf automake pkg-config libtool libhunspell-dev python3-dev
+
       - name: Set up QEMU
         if: runner.os == 'Linux'
         uses: docker/setup-qemu-action@v3
         with:
           platforms: all
+
+      - name: Set up dependencies on macOS
+        if: runner.os == 'macOS'
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew update
+          brew install autoconf automake pkg-config libtool hunspell python
 
       - name: Install Python
         uses: actions/setup-python@v5
