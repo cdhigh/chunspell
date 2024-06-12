@@ -1903,13 +1903,6 @@ static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_ve
 static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name);
 #endif
 
-/* StrEquals.proto */
-#if PY_MAJOR_VERSION >= 3
-#define __Pyx_PyString_Equals __Pyx_PyUnicode_Equals
-#else
-#define __Pyx_PyString_Equals __Pyx_PyBytes_Equals
-#endif
-
 /* PyObject_Str.proto */
 #define __Pyx_PyObject_Str(obj)\
     (likely(PyString_CheckExact(obj)) ? __Pyx_NewRef(obj) : PyObject_Str(obj))
@@ -2483,12 +2476,11 @@ typedef struct {
   PyObject *__pyx_type_8hunspell_8hunspell_HunspellWrap;
   #endif
   PyTypeObject *__pyx_ptype_8hunspell_8hunspell_HunspellWrap;
-  PyObject *__pyx_kp_s_;
   PyObject *__pyx_kp_u_;
-  PyObject *__pyx_kp_s_File_not_found_or_accessible;
-  PyObject *__pyx_kp_s_File_path_path_encoding_did_not;
-  PyObject *__pyx_n_s_HUNSPELL_DATA;
-  PyObject *__pyx_n_s_HUNSPELL_PATH_ENCODING;
+  PyObject *__pyx_kp_u_File_not_found_or_accessible;
+  PyObject *__pyx_kp_u_File_path_path_encoding_did_not;
+  PyObject *__pyx_n_u_HUNSPELL_DATA;
+  PyObject *__pyx_n_u_HUNSPELL_PATH_ENCODING;
   PyObject *__pyx_n_s_HunspellFilePathError;
   PyObject *__pyx_n_s_HunspellWrap;
   PyObject *__pyx_n_s_HunspellWrap___reduce_cython;
@@ -2504,33 +2496,35 @@ typedef struct {
   PyObject *__pyx_n_s_HunspellWrap_suffix_suggest;
   PyObject *__pyx_n_s_HunspellWrap_suggest;
   PyObject *__pyx_n_s_IOError;
-  PyObject *__pyx_kp_s_ISO8859_1;
+  PyObject *__pyx_kp_u_ISO8859_1;
   PyObject *__pyx_n_s_LookupError;
   PyObject *__pyx_n_s_MemoryError;
   PyObject *__pyx_n_s_R_OK;
   PyObject *__pyx_n_s_TypeError;
-  PyObject *__pyx_kp_s_UTF_8;
-  PyObject *__pyx_kp_s_Unexpected_action_for_hunspell;
-  PyObject *__pyx_kp_s_Unexpected_tuple_action_for_huns;
+  PyObject *__pyx_kp_u_UTF_8;
+  PyObject *__pyx_kp_u_Unexpected_action_for_hunspell;
+  PyObject *__pyx_kp_u_Unexpected_tuple_action_for_huns;
   PyObject *__pyx_n_s_UnicodeDecodeError;
   PyObject *__pyx_n_s_UnicodeEncodeError;
   PyObject *__pyx_n_s_ValueError;
   PyObject *__pyx_n_s_WIN32_LONG_PATH_PREFIX;
-  PyObject *__pyx_kp_s__2;
+  PyObject *__pyx_kp_u__2;
   PyObject *__pyx_n_s__32;
   PyObject *__pyx_n_s__4;
   PyObject *__pyx_kp_u__5;
-  PyObject *__pyx_kp_s__8;
+  PyObject *__pyx_kp_u__8;
   PyObject *__pyx_n_s_abspath;
   PyObject *__pyx_n_s_access;
   PyObject *__pyx_n_s_action;
   PyObject *__pyx_n_s_action_e;
   PyObject *__pyx_n_s_add;
+  PyObject *__pyx_n_u_add;
   PyObject *__pyx_n_s_add_dic;
   PyObject *__pyx_n_s_add_with_affix;
-  PyObject *__pyx_kp_s_aff;
+  PyObject *__pyx_kp_u_aff;
   PyObject *__pyx_n_s_analyze;
-  PyObject *__pyx_n_s_ascii;
+  PyObject *__pyx_n_u_analyze;
+  PyObject *__pyx_n_u_ascii;
   PyObject *__pyx_n_s_asyncio_coroutines;
   PyObject *__pyx_n_s_c_example;
   PyObject *__pyx_n_s_c_key;
@@ -2538,14 +2532,14 @@ typedef struct {
   PyObject *__pyx_n_s_c_word;
   PyObject *__pyx_n_s_cline_in_traceback;
   PyObject *__pyx_n_s_decode;
-  PyObject *__pyx_kp_s_dic;
+  PyObject *__pyx_kp_u_dic;
   PyObject *__pyx_n_s_dict;
-  PyObject *__pyx_n_s_dictionaries;
+  PyObject *__pyx_n_u_dictionaries;
   PyObject *__pyx_n_s_dirname;
   PyObject *__pyx_kp_u_disable;
   PyObject *__pyx_n_s_doc;
   PyObject *__pyx_n_s_dpath;
-  PyObject *__pyx_n_s_en_US;
+  PyObject *__pyx_n_u_en_US;
   PyObject *__pyx_kp_u_enable;
   PyObject *__pyx_n_s_enc;
   PyObject *__pyx_n_s_encode;
@@ -2579,7 +2573,7 @@ typedef struct {
   PyObject *__pyx_n_s_mro_entries;
   PyObject *__pyx_n_s_name;
   PyObject *__pyx_n_s_name_2;
-  PyObject *__pyx_n_s_nt;
+  PyObject *__pyx_n_u_nt;
   PyObject *__pyx_n_s_os;
   PyObject *__pyx_n_s_path;
   PyObject *__pyx_n_s_prepare;
@@ -2590,6 +2584,7 @@ typedef struct {
   PyObject *__pyx_n_s_reduce_cython;
   PyObject *__pyx_n_s_reduce_ex;
   PyObject *__pyx_n_s_remove;
+  PyObject *__pyx_n_u_remove;
   PyObject *__pyx_n_s_replace;
   PyObject *__pyx_n_s_self;
   PyObject *__pyx_kp_s_self__cxx_hunspell_cannot_be_con;
@@ -2598,15 +2593,19 @@ typedef struct {
   PyObject *__pyx_n_s_setstate_cython;
   PyObject *__pyx_n_s_spec;
   PyObject *__pyx_n_s_spell;
+  PyObject *__pyx_n_u_spell;
   PyObject *__pyx_n_s_stem;
-  PyObject *__pyx_n_s_strict;
+  PyObject *__pyx_n_u_stem;
+  PyObject *__pyx_n_u_strict;
   PyObject *__pyx_kp_s_stringsource;
   PyObject *__pyx_n_s_suffix_suggest;
+  PyObject *__pyx_n_u_suffix_suggest;
   PyObject *__pyx_n_s_suggest;
+  PyObject *__pyx_n_u_suggest;
   PyObject *__pyx_n_s_super;
   PyObject *__pyx_n_s_system_encoding;
   PyObject *__pyx_n_s_test;
-  PyObject *__pyx_n_s_utf8;
+  PyObject *__pyx_n_u_utf8;
   PyObject *__pyx_n_s_valid_encoding;
   PyObject *__pyx_n_s_word;
   PyObject *__pyx_tuple__3;
@@ -2679,12 +2678,11 @@ static int __pyx_m_clear(PyObject *m) {
   #endif
   Py_CLEAR(clear_module_state->__pyx_ptype_8hunspell_8hunspell_HunspellWrap);
   Py_CLEAR(clear_module_state->__pyx_type_8hunspell_8hunspell_HunspellWrap);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_);
   Py_CLEAR(clear_module_state->__pyx_kp_u_);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_File_not_found_or_accessible);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_File_path_path_encoding_did_not);
-  Py_CLEAR(clear_module_state->__pyx_n_s_HUNSPELL_DATA);
-  Py_CLEAR(clear_module_state->__pyx_n_s_HUNSPELL_PATH_ENCODING);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_File_not_found_or_accessible);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_File_path_path_encoding_did_not);
+  Py_CLEAR(clear_module_state->__pyx_n_u_HUNSPELL_DATA);
+  Py_CLEAR(clear_module_state->__pyx_n_u_HUNSPELL_PATH_ENCODING);
   Py_CLEAR(clear_module_state->__pyx_n_s_HunspellFilePathError);
   Py_CLEAR(clear_module_state->__pyx_n_s_HunspellWrap);
   Py_CLEAR(clear_module_state->__pyx_n_s_HunspellWrap___reduce_cython);
@@ -2700,33 +2698,35 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_HunspellWrap_suffix_suggest);
   Py_CLEAR(clear_module_state->__pyx_n_s_HunspellWrap_suggest);
   Py_CLEAR(clear_module_state->__pyx_n_s_IOError);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_ISO8859_1);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_ISO8859_1);
   Py_CLEAR(clear_module_state->__pyx_n_s_LookupError);
   Py_CLEAR(clear_module_state->__pyx_n_s_MemoryError);
   Py_CLEAR(clear_module_state->__pyx_n_s_R_OK);
   Py_CLEAR(clear_module_state->__pyx_n_s_TypeError);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_UTF_8);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_Unexpected_action_for_hunspell);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_Unexpected_tuple_action_for_huns);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_UTF_8);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_Unexpected_action_for_hunspell);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_Unexpected_tuple_action_for_huns);
   Py_CLEAR(clear_module_state->__pyx_n_s_UnicodeDecodeError);
   Py_CLEAR(clear_module_state->__pyx_n_s_UnicodeEncodeError);
   Py_CLEAR(clear_module_state->__pyx_n_s_ValueError);
   Py_CLEAR(clear_module_state->__pyx_n_s_WIN32_LONG_PATH_PREFIX);
-  Py_CLEAR(clear_module_state->__pyx_kp_s__2);
+  Py_CLEAR(clear_module_state->__pyx_kp_u__2);
   Py_CLEAR(clear_module_state->__pyx_n_s__32);
   Py_CLEAR(clear_module_state->__pyx_n_s__4);
   Py_CLEAR(clear_module_state->__pyx_kp_u__5);
-  Py_CLEAR(clear_module_state->__pyx_kp_s__8);
+  Py_CLEAR(clear_module_state->__pyx_kp_u__8);
   Py_CLEAR(clear_module_state->__pyx_n_s_abspath);
   Py_CLEAR(clear_module_state->__pyx_n_s_access);
   Py_CLEAR(clear_module_state->__pyx_n_s_action);
   Py_CLEAR(clear_module_state->__pyx_n_s_action_e);
   Py_CLEAR(clear_module_state->__pyx_n_s_add);
+  Py_CLEAR(clear_module_state->__pyx_n_u_add);
   Py_CLEAR(clear_module_state->__pyx_n_s_add_dic);
   Py_CLEAR(clear_module_state->__pyx_n_s_add_with_affix);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_aff);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_aff);
   Py_CLEAR(clear_module_state->__pyx_n_s_analyze);
-  Py_CLEAR(clear_module_state->__pyx_n_s_ascii);
+  Py_CLEAR(clear_module_state->__pyx_n_u_analyze);
+  Py_CLEAR(clear_module_state->__pyx_n_u_ascii);
   Py_CLEAR(clear_module_state->__pyx_n_s_asyncio_coroutines);
   Py_CLEAR(clear_module_state->__pyx_n_s_c_example);
   Py_CLEAR(clear_module_state->__pyx_n_s_c_key);
@@ -2734,14 +2734,14 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_c_word);
   Py_CLEAR(clear_module_state->__pyx_n_s_cline_in_traceback);
   Py_CLEAR(clear_module_state->__pyx_n_s_decode);
-  Py_CLEAR(clear_module_state->__pyx_kp_s_dic);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_dic);
   Py_CLEAR(clear_module_state->__pyx_n_s_dict);
-  Py_CLEAR(clear_module_state->__pyx_n_s_dictionaries);
+  Py_CLEAR(clear_module_state->__pyx_n_u_dictionaries);
   Py_CLEAR(clear_module_state->__pyx_n_s_dirname);
   Py_CLEAR(clear_module_state->__pyx_kp_u_disable);
   Py_CLEAR(clear_module_state->__pyx_n_s_doc);
   Py_CLEAR(clear_module_state->__pyx_n_s_dpath);
-  Py_CLEAR(clear_module_state->__pyx_n_s_en_US);
+  Py_CLEAR(clear_module_state->__pyx_n_u_en_US);
   Py_CLEAR(clear_module_state->__pyx_kp_u_enable);
   Py_CLEAR(clear_module_state->__pyx_n_s_enc);
   Py_CLEAR(clear_module_state->__pyx_n_s_encode);
@@ -2775,7 +2775,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_mro_entries);
   Py_CLEAR(clear_module_state->__pyx_n_s_name);
   Py_CLEAR(clear_module_state->__pyx_n_s_name_2);
-  Py_CLEAR(clear_module_state->__pyx_n_s_nt);
+  Py_CLEAR(clear_module_state->__pyx_n_u_nt);
   Py_CLEAR(clear_module_state->__pyx_n_s_os);
   Py_CLEAR(clear_module_state->__pyx_n_s_path);
   Py_CLEAR(clear_module_state->__pyx_n_s_prepare);
@@ -2786,6 +2786,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_reduce_cython);
   Py_CLEAR(clear_module_state->__pyx_n_s_reduce_ex);
   Py_CLEAR(clear_module_state->__pyx_n_s_remove);
+  Py_CLEAR(clear_module_state->__pyx_n_u_remove);
   Py_CLEAR(clear_module_state->__pyx_n_s_replace);
   Py_CLEAR(clear_module_state->__pyx_n_s_self);
   Py_CLEAR(clear_module_state->__pyx_kp_s_self__cxx_hunspell_cannot_be_con);
@@ -2794,15 +2795,19 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_setstate_cython);
   Py_CLEAR(clear_module_state->__pyx_n_s_spec);
   Py_CLEAR(clear_module_state->__pyx_n_s_spell);
+  Py_CLEAR(clear_module_state->__pyx_n_u_spell);
   Py_CLEAR(clear_module_state->__pyx_n_s_stem);
-  Py_CLEAR(clear_module_state->__pyx_n_s_strict);
+  Py_CLEAR(clear_module_state->__pyx_n_u_stem);
+  Py_CLEAR(clear_module_state->__pyx_n_u_strict);
   Py_CLEAR(clear_module_state->__pyx_kp_s_stringsource);
   Py_CLEAR(clear_module_state->__pyx_n_s_suffix_suggest);
+  Py_CLEAR(clear_module_state->__pyx_n_u_suffix_suggest);
   Py_CLEAR(clear_module_state->__pyx_n_s_suggest);
+  Py_CLEAR(clear_module_state->__pyx_n_u_suggest);
   Py_CLEAR(clear_module_state->__pyx_n_s_super);
   Py_CLEAR(clear_module_state->__pyx_n_s_system_encoding);
   Py_CLEAR(clear_module_state->__pyx_n_s_test);
-  Py_CLEAR(clear_module_state->__pyx_n_s_utf8);
+  Py_CLEAR(clear_module_state->__pyx_n_u_utf8);
   Py_CLEAR(clear_module_state->__pyx_n_s_valid_encoding);
   Py_CLEAR(clear_module_state->__pyx_n_s_word);
   Py_CLEAR(clear_module_state->__pyx_tuple__3);
@@ -2853,12 +2858,11 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   #endif
   Py_VISIT(traverse_module_state->__pyx_ptype_8hunspell_8hunspell_HunspellWrap);
   Py_VISIT(traverse_module_state->__pyx_type_8hunspell_8hunspell_HunspellWrap);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_);
   Py_VISIT(traverse_module_state->__pyx_kp_u_);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_File_not_found_or_accessible);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_File_path_path_encoding_did_not);
-  Py_VISIT(traverse_module_state->__pyx_n_s_HUNSPELL_DATA);
-  Py_VISIT(traverse_module_state->__pyx_n_s_HUNSPELL_PATH_ENCODING);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_File_not_found_or_accessible);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_File_path_path_encoding_did_not);
+  Py_VISIT(traverse_module_state->__pyx_n_u_HUNSPELL_DATA);
+  Py_VISIT(traverse_module_state->__pyx_n_u_HUNSPELL_PATH_ENCODING);
   Py_VISIT(traverse_module_state->__pyx_n_s_HunspellFilePathError);
   Py_VISIT(traverse_module_state->__pyx_n_s_HunspellWrap);
   Py_VISIT(traverse_module_state->__pyx_n_s_HunspellWrap___reduce_cython);
@@ -2874,33 +2878,35 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_HunspellWrap_suffix_suggest);
   Py_VISIT(traverse_module_state->__pyx_n_s_HunspellWrap_suggest);
   Py_VISIT(traverse_module_state->__pyx_n_s_IOError);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_ISO8859_1);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_ISO8859_1);
   Py_VISIT(traverse_module_state->__pyx_n_s_LookupError);
   Py_VISIT(traverse_module_state->__pyx_n_s_MemoryError);
   Py_VISIT(traverse_module_state->__pyx_n_s_R_OK);
   Py_VISIT(traverse_module_state->__pyx_n_s_TypeError);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_UTF_8);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_Unexpected_action_for_hunspell);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_Unexpected_tuple_action_for_huns);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_UTF_8);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_Unexpected_action_for_hunspell);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_Unexpected_tuple_action_for_huns);
   Py_VISIT(traverse_module_state->__pyx_n_s_UnicodeDecodeError);
   Py_VISIT(traverse_module_state->__pyx_n_s_UnicodeEncodeError);
   Py_VISIT(traverse_module_state->__pyx_n_s_ValueError);
   Py_VISIT(traverse_module_state->__pyx_n_s_WIN32_LONG_PATH_PREFIX);
-  Py_VISIT(traverse_module_state->__pyx_kp_s__2);
+  Py_VISIT(traverse_module_state->__pyx_kp_u__2);
   Py_VISIT(traverse_module_state->__pyx_n_s__32);
   Py_VISIT(traverse_module_state->__pyx_n_s__4);
   Py_VISIT(traverse_module_state->__pyx_kp_u__5);
-  Py_VISIT(traverse_module_state->__pyx_kp_s__8);
+  Py_VISIT(traverse_module_state->__pyx_kp_u__8);
   Py_VISIT(traverse_module_state->__pyx_n_s_abspath);
   Py_VISIT(traverse_module_state->__pyx_n_s_access);
   Py_VISIT(traverse_module_state->__pyx_n_s_action);
   Py_VISIT(traverse_module_state->__pyx_n_s_action_e);
   Py_VISIT(traverse_module_state->__pyx_n_s_add);
+  Py_VISIT(traverse_module_state->__pyx_n_u_add);
   Py_VISIT(traverse_module_state->__pyx_n_s_add_dic);
   Py_VISIT(traverse_module_state->__pyx_n_s_add_with_affix);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_aff);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_aff);
   Py_VISIT(traverse_module_state->__pyx_n_s_analyze);
-  Py_VISIT(traverse_module_state->__pyx_n_s_ascii);
+  Py_VISIT(traverse_module_state->__pyx_n_u_analyze);
+  Py_VISIT(traverse_module_state->__pyx_n_u_ascii);
   Py_VISIT(traverse_module_state->__pyx_n_s_asyncio_coroutines);
   Py_VISIT(traverse_module_state->__pyx_n_s_c_example);
   Py_VISIT(traverse_module_state->__pyx_n_s_c_key);
@@ -2908,14 +2914,14 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_c_word);
   Py_VISIT(traverse_module_state->__pyx_n_s_cline_in_traceback);
   Py_VISIT(traverse_module_state->__pyx_n_s_decode);
-  Py_VISIT(traverse_module_state->__pyx_kp_s_dic);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_dic);
   Py_VISIT(traverse_module_state->__pyx_n_s_dict);
-  Py_VISIT(traverse_module_state->__pyx_n_s_dictionaries);
+  Py_VISIT(traverse_module_state->__pyx_n_u_dictionaries);
   Py_VISIT(traverse_module_state->__pyx_n_s_dirname);
   Py_VISIT(traverse_module_state->__pyx_kp_u_disable);
   Py_VISIT(traverse_module_state->__pyx_n_s_doc);
   Py_VISIT(traverse_module_state->__pyx_n_s_dpath);
-  Py_VISIT(traverse_module_state->__pyx_n_s_en_US);
+  Py_VISIT(traverse_module_state->__pyx_n_u_en_US);
   Py_VISIT(traverse_module_state->__pyx_kp_u_enable);
   Py_VISIT(traverse_module_state->__pyx_n_s_enc);
   Py_VISIT(traverse_module_state->__pyx_n_s_encode);
@@ -2949,7 +2955,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_mro_entries);
   Py_VISIT(traverse_module_state->__pyx_n_s_name);
   Py_VISIT(traverse_module_state->__pyx_n_s_name_2);
-  Py_VISIT(traverse_module_state->__pyx_n_s_nt);
+  Py_VISIT(traverse_module_state->__pyx_n_u_nt);
   Py_VISIT(traverse_module_state->__pyx_n_s_os);
   Py_VISIT(traverse_module_state->__pyx_n_s_path);
   Py_VISIT(traverse_module_state->__pyx_n_s_prepare);
@@ -2960,6 +2966,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_reduce_cython);
   Py_VISIT(traverse_module_state->__pyx_n_s_reduce_ex);
   Py_VISIT(traverse_module_state->__pyx_n_s_remove);
+  Py_VISIT(traverse_module_state->__pyx_n_u_remove);
   Py_VISIT(traverse_module_state->__pyx_n_s_replace);
   Py_VISIT(traverse_module_state->__pyx_n_s_self);
   Py_VISIT(traverse_module_state->__pyx_kp_s_self__cxx_hunspell_cannot_be_con);
@@ -2968,15 +2975,19 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_setstate_cython);
   Py_VISIT(traverse_module_state->__pyx_n_s_spec);
   Py_VISIT(traverse_module_state->__pyx_n_s_spell);
+  Py_VISIT(traverse_module_state->__pyx_n_u_spell);
   Py_VISIT(traverse_module_state->__pyx_n_s_stem);
-  Py_VISIT(traverse_module_state->__pyx_n_s_strict);
+  Py_VISIT(traverse_module_state->__pyx_n_u_stem);
+  Py_VISIT(traverse_module_state->__pyx_n_u_strict);
   Py_VISIT(traverse_module_state->__pyx_kp_s_stringsource);
   Py_VISIT(traverse_module_state->__pyx_n_s_suffix_suggest);
+  Py_VISIT(traverse_module_state->__pyx_n_u_suffix_suggest);
   Py_VISIT(traverse_module_state->__pyx_n_s_suggest);
+  Py_VISIT(traverse_module_state->__pyx_n_u_suggest);
   Py_VISIT(traverse_module_state->__pyx_n_s_super);
   Py_VISIT(traverse_module_state->__pyx_n_s_system_encoding);
   Py_VISIT(traverse_module_state->__pyx_n_s_test);
-  Py_VISIT(traverse_module_state->__pyx_n_s_utf8);
+  Py_VISIT(traverse_module_state->__pyx_n_u_utf8);
   Py_VISIT(traverse_module_state->__pyx_n_s_valid_encoding);
   Py_VISIT(traverse_module_state->__pyx_n_s_word);
   Py_VISIT(traverse_module_state->__pyx_tuple__3);
@@ -3041,12 +3052,11 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_type_8hunspell_8hunspell_HunspellWrap __pyx_mstate_global->__pyx_type_8hunspell_8hunspell_HunspellWrap
 #endif
 #define __pyx_ptype_8hunspell_8hunspell_HunspellWrap __pyx_mstate_global->__pyx_ptype_8hunspell_8hunspell_HunspellWrap
-#define __pyx_kp_s_ __pyx_mstate_global->__pyx_kp_s_
 #define __pyx_kp_u_ __pyx_mstate_global->__pyx_kp_u_
-#define __pyx_kp_s_File_not_found_or_accessible __pyx_mstate_global->__pyx_kp_s_File_not_found_or_accessible
-#define __pyx_kp_s_File_path_path_encoding_did_not __pyx_mstate_global->__pyx_kp_s_File_path_path_encoding_did_not
-#define __pyx_n_s_HUNSPELL_DATA __pyx_mstate_global->__pyx_n_s_HUNSPELL_DATA
-#define __pyx_n_s_HUNSPELL_PATH_ENCODING __pyx_mstate_global->__pyx_n_s_HUNSPELL_PATH_ENCODING
+#define __pyx_kp_u_File_not_found_or_accessible __pyx_mstate_global->__pyx_kp_u_File_not_found_or_accessible
+#define __pyx_kp_u_File_path_path_encoding_did_not __pyx_mstate_global->__pyx_kp_u_File_path_path_encoding_did_not
+#define __pyx_n_u_HUNSPELL_DATA __pyx_mstate_global->__pyx_n_u_HUNSPELL_DATA
+#define __pyx_n_u_HUNSPELL_PATH_ENCODING __pyx_mstate_global->__pyx_n_u_HUNSPELL_PATH_ENCODING
 #define __pyx_n_s_HunspellFilePathError __pyx_mstate_global->__pyx_n_s_HunspellFilePathError
 #define __pyx_n_s_HunspellWrap __pyx_mstate_global->__pyx_n_s_HunspellWrap
 #define __pyx_n_s_HunspellWrap___reduce_cython __pyx_mstate_global->__pyx_n_s_HunspellWrap___reduce_cython
@@ -3062,33 +3072,35 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_HunspellWrap_suffix_suggest __pyx_mstate_global->__pyx_n_s_HunspellWrap_suffix_suggest
 #define __pyx_n_s_HunspellWrap_suggest __pyx_mstate_global->__pyx_n_s_HunspellWrap_suggest
 #define __pyx_n_s_IOError __pyx_mstate_global->__pyx_n_s_IOError
-#define __pyx_kp_s_ISO8859_1 __pyx_mstate_global->__pyx_kp_s_ISO8859_1
+#define __pyx_kp_u_ISO8859_1 __pyx_mstate_global->__pyx_kp_u_ISO8859_1
 #define __pyx_n_s_LookupError __pyx_mstate_global->__pyx_n_s_LookupError
 #define __pyx_n_s_MemoryError __pyx_mstate_global->__pyx_n_s_MemoryError
 #define __pyx_n_s_R_OK __pyx_mstate_global->__pyx_n_s_R_OK
 #define __pyx_n_s_TypeError __pyx_mstate_global->__pyx_n_s_TypeError
-#define __pyx_kp_s_UTF_8 __pyx_mstate_global->__pyx_kp_s_UTF_8
-#define __pyx_kp_s_Unexpected_action_for_hunspell __pyx_mstate_global->__pyx_kp_s_Unexpected_action_for_hunspell
-#define __pyx_kp_s_Unexpected_tuple_action_for_huns __pyx_mstate_global->__pyx_kp_s_Unexpected_tuple_action_for_huns
+#define __pyx_kp_u_UTF_8 __pyx_mstate_global->__pyx_kp_u_UTF_8
+#define __pyx_kp_u_Unexpected_action_for_hunspell __pyx_mstate_global->__pyx_kp_u_Unexpected_action_for_hunspell
+#define __pyx_kp_u_Unexpected_tuple_action_for_huns __pyx_mstate_global->__pyx_kp_u_Unexpected_tuple_action_for_huns
 #define __pyx_n_s_UnicodeDecodeError __pyx_mstate_global->__pyx_n_s_UnicodeDecodeError
 #define __pyx_n_s_UnicodeEncodeError __pyx_mstate_global->__pyx_n_s_UnicodeEncodeError
 #define __pyx_n_s_ValueError __pyx_mstate_global->__pyx_n_s_ValueError
 #define __pyx_n_s_WIN32_LONG_PATH_PREFIX __pyx_mstate_global->__pyx_n_s_WIN32_LONG_PATH_PREFIX
-#define __pyx_kp_s__2 __pyx_mstate_global->__pyx_kp_s__2
+#define __pyx_kp_u__2 __pyx_mstate_global->__pyx_kp_u__2
 #define __pyx_n_s__32 __pyx_mstate_global->__pyx_n_s__32
 #define __pyx_n_s__4 __pyx_mstate_global->__pyx_n_s__4
 #define __pyx_kp_u__5 __pyx_mstate_global->__pyx_kp_u__5
-#define __pyx_kp_s__8 __pyx_mstate_global->__pyx_kp_s__8
+#define __pyx_kp_u__8 __pyx_mstate_global->__pyx_kp_u__8
 #define __pyx_n_s_abspath __pyx_mstate_global->__pyx_n_s_abspath
 #define __pyx_n_s_access __pyx_mstate_global->__pyx_n_s_access
 #define __pyx_n_s_action __pyx_mstate_global->__pyx_n_s_action
 #define __pyx_n_s_action_e __pyx_mstate_global->__pyx_n_s_action_e
 #define __pyx_n_s_add __pyx_mstate_global->__pyx_n_s_add
+#define __pyx_n_u_add __pyx_mstate_global->__pyx_n_u_add
 #define __pyx_n_s_add_dic __pyx_mstate_global->__pyx_n_s_add_dic
 #define __pyx_n_s_add_with_affix __pyx_mstate_global->__pyx_n_s_add_with_affix
-#define __pyx_kp_s_aff __pyx_mstate_global->__pyx_kp_s_aff
+#define __pyx_kp_u_aff __pyx_mstate_global->__pyx_kp_u_aff
 #define __pyx_n_s_analyze __pyx_mstate_global->__pyx_n_s_analyze
-#define __pyx_n_s_ascii __pyx_mstate_global->__pyx_n_s_ascii
+#define __pyx_n_u_analyze __pyx_mstate_global->__pyx_n_u_analyze
+#define __pyx_n_u_ascii __pyx_mstate_global->__pyx_n_u_ascii
 #define __pyx_n_s_asyncio_coroutines __pyx_mstate_global->__pyx_n_s_asyncio_coroutines
 #define __pyx_n_s_c_example __pyx_mstate_global->__pyx_n_s_c_example
 #define __pyx_n_s_c_key __pyx_mstate_global->__pyx_n_s_c_key
@@ -3096,14 +3108,14 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_c_word __pyx_mstate_global->__pyx_n_s_c_word
 #define __pyx_n_s_cline_in_traceback __pyx_mstate_global->__pyx_n_s_cline_in_traceback
 #define __pyx_n_s_decode __pyx_mstate_global->__pyx_n_s_decode
-#define __pyx_kp_s_dic __pyx_mstate_global->__pyx_kp_s_dic
+#define __pyx_kp_u_dic __pyx_mstate_global->__pyx_kp_u_dic
 #define __pyx_n_s_dict __pyx_mstate_global->__pyx_n_s_dict
-#define __pyx_n_s_dictionaries __pyx_mstate_global->__pyx_n_s_dictionaries
+#define __pyx_n_u_dictionaries __pyx_mstate_global->__pyx_n_u_dictionaries
 #define __pyx_n_s_dirname __pyx_mstate_global->__pyx_n_s_dirname
 #define __pyx_kp_u_disable __pyx_mstate_global->__pyx_kp_u_disable
 #define __pyx_n_s_doc __pyx_mstate_global->__pyx_n_s_doc
 #define __pyx_n_s_dpath __pyx_mstate_global->__pyx_n_s_dpath
-#define __pyx_n_s_en_US __pyx_mstate_global->__pyx_n_s_en_US
+#define __pyx_n_u_en_US __pyx_mstate_global->__pyx_n_u_en_US
 #define __pyx_kp_u_enable __pyx_mstate_global->__pyx_kp_u_enable
 #define __pyx_n_s_enc __pyx_mstate_global->__pyx_n_s_enc
 #define __pyx_n_s_encode __pyx_mstate_global->__pyx_n_s_encode
@@ -3137,7 +3149,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_mro_entries __pyx_mstate_global->__pyx_n_s_mro_entries
 #define __pyx_n_s_name __pyx_mstate_global->__pyx_n_s_name
 #define __pyx_n_s_name_2 __pyx_mstate_global->__pyx_n_s_name_2
-#define __pyx_n_s_nt __pyx_mstate_global->__pyx_n_s_nt
+#define __pyx_n_u_nt __pyx_mstate_global->__pyx_n_u_nt
 #define __pyx_n_s_os __pyx_mstate_global->__pyx_n_s_os
 #define __pyx_n_s_path __pyx_mstate_global->__pyx_n_s_path
 #define __pyx_n_s_prepare __pyx_mstate_global->__pyx_n_s_prepare
@@ -3148,6 +3160,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_reduce_cython __pyx_mstate_global->__pyx_n_s_reduce_cython
 #define __pyx_n_s_reduce_ex __pyx_mstate_global->__pyx_n_s_reduce_ex
 #define __pyx_n_s_remove __pyx_mstate_global->__pyx_n_s_remove
+#define __pyx_n_u_remove __pyx_mstate_global->__pyx_n_u_remove
 #define __pyx_n_s_replace __pyx_mstate_global->__pyx_n_s_replace
 #define __pyx_n_s_self __pyx_mstate_global->__pyx_n_s_self
 #define __pyx_kp_s_self__cxx_hunspell_cannot_be_con __pyx_mstate_global->__pyx_kp_s_self__cxx_hunspell_cannot_be_con
@@ -3156,15 +3169,19 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_setstate_cython __pyx_mstate_global->__pyx_n_s_setstate_cython
 #define __pyx_n_s_spec __pyx_mstate_global->__pyx_n_s_spec
 #define __pyx_n_s_spell __pyx_mstate_global->__pyx_n_s_spell
+#define __pyx_n_u_spell __pyx_mstate_global->__pyx_n_u_spell
 #define __pyx_n_s_stem __pyx_mstate_global->__pyx_n_s_stem
-#define __pyx_n_s_strict __pyx_mstate_global->__pyx_n_s_strict
+#define __pyx_n_u_stem __pyx_mstate_global->__pyx_n_u_stem
+#define __pyx_n_u_strict __pyx_mstate_global->__pyx_n_u_strict
 #define __pyx_kp_s_stringsource __pyx_mstate_global->__pyx_kp_s_stringsource
 #define __pyx_n_s_suffix_suggest __pyx_mstate_global->__pyx_n_s_suffix_suggest
+#define __pyx_n_u_suffix_suggest __pyx_mstate_global->__pyx_n_u_suffix_suggest
 #define __pyx_n_s_suggest __pyx_mstate_global->__pyx_n_s_suggest
+#define __pyx_n_u_suggest __pyx_mstate_global->__pyx_n_u_suggest
 #define __pyx_n_s_super __pyx_mstate_global->__pyx_n_s_super
 #define __pyx_n_s_system_encoding __pyx_mstate_global->__pyx_n_s_system_encoding
 #define __pyx_n_s_test __pyx_mstate_global->__pyx_n_s_test
-#define __pyx_n_s_utf8 __pyx_mstate_global->__pyx_n_s_utf8
+#define __pyx_n_u_utf8 __pyx_mstate_global->__pyx_n_u_utf8
 #define __pyx_n_s_valid_encoding __pyx_mstate_global->__pyx_n_s_valid_encoding
 #define __pyx_n_s_word __pyx_mstate_global->__pyx_n_s_word
 #define __pyx_tuple__3 __pyx_mstate_global->__pyx_tuple__3
@@ -3223,7 +3240,7 @@ static __pyx_t_8hunspell_8hunspell_action_type __pyx_f_8hunspell_8hunspell_actio
  *         return add
  *     elif action == 'remove':
  */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_s_add, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_u_add, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 23, __pyx_L1_error)
   if (__pyx_t_1) {
 
     /* "hunspell/hunspell.pyx":24
@@ -3252,7 +3269,7 @@ static __pyx_t_8hunspell_8hunspell_action_type __pyx_f_8hunspell_8hunspell_actio
  *         return remove
  *     elif action == 'spell':
  */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_s_remove, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_u_remove, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 25, __pyx_L1_error)
   if (__pyx_t_1) {
 
     /* "hunspell/hunspell.pyx":26
@@ -3281,7 +3298,7 @@ static __pyx_t_8hunspell_8hunspell_action_type __pyx_f_8hunspell_8hunspell_actio
  *         return spell
  *     elif action == 'analyze':
  */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_s_spell, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_u_spell, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 27, __pyx_L1_error)
   if (__pyx_t_1) {
 
     /* "hunspell/hunspell.pyx":28
@@ -3310,7 +3327,7 @@ static __pyx_t_8hunspell_8hunspell_action_type __pyx_f_8hunspell_8hunspell_actio
  *         return analyze
  *     elif action == 'stem':
  */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_s_analyze, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_u_analyze, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 29, __pyx_L1_error)
   if (__pyx_t_1) {
 
     /* "hunspell/hunspell.pyx":30
@@ -3339,7 +3356,7 @@ static __pyx_t_8hunspell_8hunspell_action_type __pyx_f_8hunspell_8hunspell_actio
  *         return stem
  *     elif action == 'suggest':
  */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_s_stem, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_u_stem, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 31, __pyx_L1_error)
   if (__pyx_t_1) {
 
     /* "hunspell/hunspell.pyx":32
@@ -3368,7 +3385,7 @@ static __pyx_t_8hunspell_8hunspell_action_type __pyx_f_8hunspell_8hunspell_actio
  *         return suggest
  *     elif action == 'suffix_suggest':
  */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_s_suggest, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_u_suggest, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 33, __pyx_L1_error)
   if (__pyx_t_1) {
 
     /* "hunspell/hunspell.pyx":34
@@ -3397,7 +3414,7 @@ static __pyx_t_8hunspell_8hunspell_action_type __pyx_f_8hunspell_8hunspell_actio
  *         return suffix_suggest
  *     else:
  */
-  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_s_suffix_suggest, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_action, __pyx_n_u_suffix_suggest, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
   if (likely(__pyx_t_1)) {
 
     /* "hunspell/hunspell.pyx":36
@@ -3427,7 +3444,7 @@ static __pyx_t_8hunspell_8hunspell_action_type __pyx_f_8hunspell_8hunspell_actio
  * cdef basestring action_to_string(action_type action_e):
  */
   /*else*/ {
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Unexpected_action_for_hunspell, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Unexpected_action_for_hunspell, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_4 = NULL;
     __pyx_t_5 = 0;
@@ -3518,8 +3535,8 @@ static PyObject *__pyx_f_8hunspell_8hunspell_action_to_string(__pyx_t_8hunspell_
  *         return 'remove'
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_INCREF(__pyx_n_s_add);
-    __pyx_r = ((PyObject*)__pyx_n_s_add);
+    __Pyx_INCREF(__pyx_n_u_add);
+    __pyx_r = ((PyObject*)__pyx_n_u_add);
     goto __pyx_L0;
 
     /* "hunspell/hunspell.pyx":41
@@ -3540,8 +3557,8 @@ static PyObject *__pyx_f_8hunspell_8hunspell_action_to_string(__pyx_t_8hunspell_
  *         return 'spell'
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_INCREF(__pyx_n_s_remove);
-    __pyx_r = ((PyObject*)__pyx_n_s_remove);
+    __Pyx_INCREF(__pyx_n_u_remove);
+    __pyx_r = ((PyObject*)__pyx_n_u_remove);
     goto __pyx_L0;
 
     /* "hunspell/hunspell.pyx":43
@@ -3562,8 +3579,8 @@ static PyObject *__pyx_f_8hunspell_8hunspell_action_to_string(__pyx_t_8hunspell_
  *         return 'analyze'
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_INCREF(__pyx_n_s_spell);
-    __pyx_r = ((PyObject*)__pyx_n_s_spell);
+    __Pyx_INCREF(__pyx_n_u_spell);
+    __pyx_r = ((PyObject*)__pyx_n_u_spell);
     goto __pyx_L0;
 
     /* "hunspell/hunspell.pyx":45
@@ -3584,8 +3601,8 @@ static PyObject *__pyx_f_8hunspell_8hunspell_action_to_string(__pyx_t_8hunspell_
  *         return 'stem'
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_INCREF(__pyx_n_s_analyze);
-    __pyx_r = ((PyObject*)__pyx_n_s_analyze);
+    __Pyx_INCREF(__pyx_n_u_analyze);
+    __pyx_r = ((PyObject*)__pyx_n_u_analyze);
     goto __pyx_L0;
 
     /* "hunspell/hunspell.pyx":47
@@ -3606,8 +3623,8 @@ static PyObject *__pyx_f_8hunspell_8hunspell_action_to_string(__pyx_t_8hunspell_
  *         return 'suggest'
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_INCREF(__pyx_n_s_stem);
-    __pyx_r = ((PyObject*)__pyx_n_s_stem);
+    __Pyx_INCREF(__pyx_n_u_stem);
+    __pyx_r = ((PyObject*)__pyx_n_u_stem);
     goto __pyx_L0;
 
     /* "hunspell/hunspell.pyx":49
@@ -3628,8 +3645,8 @@ static PyObject *__pyx_f_8hunspell_8hunspell_action_to_string(__pyx_t_8hunspell_
  *         return 'suffix_suggest'
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_INCREF(__pyx_n_s_suggest);
-    __pyx_r = ((PyObject*)__pyx_n_s_suggest);
+    __Pyx_INCREF(__pyx_n_u_suggest);
+    __pyx_r = ((PyObject*)__pyx_n_u_suggest);
     goto __pyx_L0;
 
     /* "hunspell/hunspell.pyx":51
@@ -3650,8 +3667,8 @@ static PyObject *__pyx_f_8hunspell_8hunspell_action_to_string(__pyx_t_8hunspell_
  *         raise ValueError("Unexpected action {} for hunspell".format(action_e))
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_INCREF(__pyx_n_s_suffix_suggest);
-    __pyx_r = ((PyObject*)__pyx_n_s_suffix_suggest);
+    __Pyx_INCREF(__pyx_n_u_suffix_suggest);
+    __pyx_r = ((PyObject*)__pyx_n_u_suffix_suggest);
     goto __pyx_L0;
 
     /* "hunspell/hunspell.pyx":53
@@ -3671,7 +3688,7 @@ static PyObject *__pyx_f_8hunspell_8hunspell_action_to_string(__pyx_t_8hunspell_
  * 
  * def valid_encoding(basestring encoding):
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Unexpected_action_for_hunspell, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Unexpected_action_for_hunspell, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = __Pyx_PyInt_From___pyx_t_8hunspell_8hunspell_action_type(__pyx_v_action_e); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
@@ -3876,7 +3893,7 @@ static PyObject *__pyx_pf_8hunspell_8hunspell_valid_encoding(CYTHON_UNUSED PyObj
  *         return encoding
  *     except LookupError:
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_, __pyx_n_s_encode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_, __pyx_n_s_encode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_6 = NULL;
       __pyx_t_7 = 0;
@@ -3893,7 +3910,7 @@ static PyObject *__pyx_pf_8hunspell_8hunspell_valid_encoding(CYTHON_UNUSED PyObj
       }
       #endif
       {
-        PyObject *__pyx_callargs[3] = {__pyx_t_6, __pyx_v_encoding, __pyx_n_s_strict};
+        PyObject *__pyx_callargs[3] = {__pyx_t_6, __pyx_v_encoding, __pyx_n_u_strict};
         __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 2+__pyx_t_7);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 60, __pyx_L3_error)
@@ -3950,8 +3967,8 @@ static PyObject *__pyx_pf_8hunspell_8hunspell_valid_encoding(CYTHON_UNUSED PyObj
  * cdef int copy_to_c_string(basestring py_string, char **holder, basestring encoding) except -1:
  */
       __Pyx_XDECREF(__pyx_r);
-      __Pyx_INCREF(__pyx_n_s_ascii);
-      __pyx_r = __pyx_n_s_ascii;
+      __Pyx_INCREF(__pyx_n_u_ascii);
+      __pyx_r = __pyx_n_u_ascii;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -4083,7 +4100,7 @@ static int __pyx_f_8hunspell_8hunspell_copy_to_c_string(PyObject *__pyx_v_py_str
     }
     #endif
     {
-      PyObject *__pyx_callargs[3] = {__pyx_t_5, __pyx_v_encoding, __pyx_n_s_strict};
+      PyObject *__pyx_callargs[3] = {__pyx_t_5, __pyx_v_encoding, __pyx_n_u_strict};
       __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_2, 2+__pyx_t_2);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
@@ -4311,7 +4328,7 @@ static PyObject *__pyx_f_8hunspell_8hunspell_c_string_to_unicode_no_except(char 
       }
       #endif
       {
-        PyObject *__pyx_callargs[3] = {__pyx_t_5, __pyx_v_encoding, __pyx_n_s_strict};
+        PyObject *__pyx_callargs[3] = {__pyx_t_5, __pyx_v_encoding, __pyx_n_u_strict};
         __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_7, 2+__pyx_t_7);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 84, __pyx_L3_error)
@@ -4450,7 +4467,7 @@ static PyObject *__pyx_f_8hunspell_8hunspell_12HunspellWrap_prefix_win_utf8_huns
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_nt, Py_EQ)); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_t_4 = (__Pyx_PyUnicode_Equals(__pyx_t_3, __pyx_n_u_nt, Py_EQ)); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_4) {
   } else {
@@ -4487,7 +4504,7 @@ static PyObject *__pyx_f_8hunspell_8hunspell_12HunspellWrap_prefix_win_utf8_huns
   __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = (__Pyx_PyString_Equals(__pyx_t_3, __pyx_n_s_utf8, Py_EQ)); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_t_4 = (__Pyx_PyUnicode_Equals(__pyx_t_3, __pyx_n_u_utf8, Py_EQ)); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_1 = __pyx_t_4;
   __pyx_L4_bool_binop_done:;
@@ -4699,7 +4716,7 @@ static Hunspell *__pyx_f_8hunspell_8hunspell_12HunspellWrap__create_hspell_inst(
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_aff, __pyx_n_s_format); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_aff, __pyx_n_s_format); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -4764,7 +4781,7 @@ static Hunspell *__pyx_f_8hunspell_8hunspell_12HunspellWrap__create_hspell_inst(
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_join); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_dic, __pyx_n_s_format); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_dic, __pyx_n_s_format); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -4937,7 +4954,7 @@ static Hunspell *__pyx_f_8hunspell_8hunspell_12HunspellWrap__create_hspell_inst(
  */
       __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_HunspellFilePathError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 119, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_File_not_found_or_accessible, __pyx_n_s_format); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 119, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_File_not_found_or_accessible, __pyx_n_s_format); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 119, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_11 = NULL;
       __pyx_t_7 = 0;
@@ -5162,7 +5179,7 @@ static Hunspell *__pyx_f_8hunspell_8hunspell_12HunspellWrap__create_hspell_inst(
  *                     path=next_str, enc=self._system_encoding, err=str(e))
  *             )
  */
-        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_File_path_path_encoding_did_not, __pyx_n_s_format); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 136, __pyx_L22_error)
+        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_File_path_path_encoding_did_not, __pyx_n_s_format); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 136, __pyx_L22_error)
         __Pyx_GOTREF(__pyx_t_11);
 
         /* "hunspell/hunspell.pyx":137
@@ -5392,7 +5409,7 @@ static int __pyx_pw_8hunspell_8hunspell_12HunspellWrap_1__init__(PyObject *__pyx
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
   {
     PyObject **__pyx_pyargnames[] = {&__pyx_n_s_lang,&__pyx_n_s_hunspell_data_dir,&__pyx_n_s_system_encoding,0};
-    values[0] = __Pyx_Arg_NewRef_VARARGS(((PyObject*)__pyx_n_s_en_US));
+    values[0] = __Pyx_Arg_NewRef_VARARGS(((PyObject*)__pyx_n_u_en_US));
     values[1] = __Pyx_Arg_NewRef_VARARGS(((PyObject*)Py_None));
 
     /* "hunspell/hunspell.pyx":146
@@ -5561,7 +5578,7 @@ static int __pyx_pf_8hunspell_8hunspell_12HunspellWrap___init__(struct __pyx_obj
     }
     #endif
     {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_n_s_HUNSPELL_DATA};
+      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_n_u_HUNSPELL_DATA};
       __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 148, __pyx_L1_error)
@@ -5654,7 +5671,7 @@ static int __pyx_pf_8hunspell_8hunspell_12HunspellWrap___init__(struct __pyx_obj
     }
     #endif
     {
-      PyObject *__pyx_callargs[3] = {__pyx_t_6, __pyx_t_4, __pyx_n_s_dictionaries};
+      PyObject *__pyx_callargs[3] = {__pyx_t_6, __pyx_t_4, __pyx_n_u_dictionaries};
       __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 2+__pyx_t_5);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -5715,7 +5732,7 @@ static int __pyx_pf_8hunspell_8hunspell_12HunspellWrap___init__(struct __pyx_obj
     }
     #endif
     {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_n_s_HUNSPELL_PATH_ENCODING};
+      PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_n_u_HUNSPELL_PATH_ENCODING};
       __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 152, __pyx_L1_error)
@@ -5862,7 +5879,7 @@ static int __pyx_pf_8hunspell_8hunspell_12HunspellWrap___init__(struct __pyx_obj
  */
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_valid_encoding); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __pyx_f_8hunspell_8hunspell_c_string_to_unicode_no_except(__pyx_v_self->_cxx_hunspell->get_dic_encoding(), ((PyObject*)__pyx_kp_s_ISO8859_1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 159, __pyx_L1_error)
+  __pyx_t_4 = __pyx_f_8hunspell_8hunspell_c_string_to_unicode_no_except(__pyx_v_self->_cxx_hunspell->get_dic_encoding(), ((PyObject*)__pyx_kp_u_ISO8859_1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_5 = 0;
@@ -6194,7 +6211,7 @@ static PyObject *__pyx_pf_8hunspell_8hunspell_12HunspellWrap_4add_dic(struct __p
  *         try:
  *             if key:
  */
-  __pyx_t_1 = __pyx_f_8hunspell_8hunspell_copy_to_c_string(__pyx_v_dpath, (&__pyx_v_c_path), ((PyObject*)__pyx_kp_s_UTF_8)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 172, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_8hunspell_8hunspell_copy_to_c_string(__pyx_v_dpath, (&__pyx_v_c_path), ((PyObject*)__pyx_kp_u_UTF_8)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 172, __pyx_L1_error)
 
   /* "hunspell/hunspell.pyx":173
  *         cdef char *c_key = NULL
@@ -6222,7 +6239,7 @@ static PyObject *__pyx_pf_8hunspell_8hunspell_12HunspellWrap_4add_dic(struct __p
  *             try:
  *                 return self._cxx_hunspell.add_dic(c_path, c_key)
  */
-      __pyx_t_1 = __pyx_f_8hunspell_8hunspell_copy_to_c_string(__pyx_v_key, (&__pyx_v_c_key), ((PyObject*)__pyx_kp_s_UTF_8)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 175, __pyx_L4_error)
+      __pyx_t_1 = __pyx_f_8hunspell_8hunspell_copy_to_c_string(__pyx_v_key, (&__pyx_v_c_key), ((PyObject*)__pyx_kp_u_UTF_8)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 175, __pyx_L4_error)
 
       /* "hunspell/hunspell.pyx":174
  *         copy_to_c_string(dpath, &c_path, 'UTF-8')
@@ -8770,7 +8787,7 @@ static PyObject *__pyx_f_8hunspell_8hunspell_12HunspellWrap_c_tuple_action(struc
  * 
  *             results_list = []
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Unexpected_tuple_action_for_huns, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 276, __pyx_L4_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Unexpected_tuple_action_for_huns, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 276, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_4 = __pyx_f_8hunspell_8hunspell_action_to_string(__pyx_v_action_e); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 276, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_4);
@@ -9891,12 +9908,11 @@ static PyMethodDef __pyx_methods[] = {
 
 static int __Pyx_CreateStringTabAndInitStrings(void) {
   __Pyx_StringTabEntry __pyx_string_tab[] = {
-    {&__pyx_kp_s_, __pyx_k_, sizeof(__pyx_k_), 0, 0, 1, 0},
     {&__pyx_kp_u_, __pyx_k_, sizeof(__pyx_k_), 0, 1, 0, 0},
-    {&__pyx_kp_s_File_not_found_or_accessible, __pyx_k_File_not_found_or_accessible, sizeof(__pyx_k_File_not_found_or_accessible), 0, 0, 1, 0},
-    {&__pyx_kp_s_File_path_path_encoding_did_not, __pyx_k_File_path_path_encoding_did_not, sizeof(__pyx_k_File_path_path_encoding_did_not), 0, 0, 1, 0},
-    {&__pyx_n_s_HUNSPELL_DATA, __pyx_k_HUNSPELL_DATA, sizeof(__pyx_k_HUNSPELL_DATA), 0, 0, 1, 1},
-    {&__pyx_n_s_HUNSPELL_PATH_ENCODING, __pyx_k_HUNSPELL_PATH_ENCODING, sizeof(__pyx_k_HUNSPELL_PATH_ENCODING), 0, 0, 1, 1},
+    {&__pyx_kp_u_File_not_found_or_accessible, __pyx_k_File_not_found_or_accessible, sizeof(__pyx_k_File_not_found_or_accessible), 0, 1, 0, 0},
+    {&__pyx_kp_u_File_path_path_encoding_did_not, __pyx_k_File_path_path_encoding_did_not, sizeof(__pyx_k_File_path_path_encoding_did_not), 0, 1, 0, 0},
+    {&__pyx_n_u_HUNSPELL_DATA, __pyx_k_HUNSPELL_DATA, sizeof(__pyx_k_HUNSPELL_DATA), 0, 1, 0, 1},
+    {&__pyx_n_u_HUNSPELL_PATH_ENCODING, __pyx_k_HUNSPELL_PATH_ENCODING, sizeof(__pyx_k_HUNSPELL_PATH_ENCODING), 0, 1, 0, 1},
     {&__pyx_n_s_HunspellFilePathError, __pyx_k_HunspellFilePathError, sizeof(__pyx_k_HunspellFilePathError), 0, 0, 1, 1},
     {&__pyx_n_s_HunspellWrap, __pyx_k_HunspellWrap, sizeof(__pyx_k_HunspellWrap), 0, 0, 1, 1},
     {&__pyx_n_s_HunspellWrap___reduce_cython, __pyx_k_HunspellWrap___reduce_cython, sizeof(__pyx_k_HunspellWrap___reduce_cython), 0, 0, 1, 1},
@@ -9912,33 +9928,35 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_HunspellWrap_suffix_suggest, __pyx_k_HunspellWrap_suffix_suggest, sizeof(__pyx_k_HunspellWrap_suffix_suggest), 0, 0, 1, 1},
     {&__pyx_n_s_HunspellWrap_suggest, __pyx_k_HunspellWrap_suggest, sizeof(__pyx_k_HunspellWrap_suggest), 0, 0, 1, 1},
     {&__pyx_n_s_IOError, __pyx_k_IOError, sizeof(__pyx_k_IOError), 0, 0, 1, 1},
-    {&__pyx_kp_s_ISO8859_1, __pyx_k_ISO8859_1, sizeof(__pyx_k_ISO8859_1), 0, 0, 1, 0},
+    {&__pyx_kp_u_ISO8859_1, __pyx_k_ISO8859_1, sizeof(__pyx_k_ISO8859_1), 0, 1, 0, 0},
     {&__pyx_n_s_LookupError, __pyx_k_LookupError, sizeof(__pyx_k_LookupError), 0, 0, 1, 1},
     {&__pyx_n_s_MemoryError, __pyx_k_MemoryError, sizeof(__pyx_k_MemoryError), 0, 0, 1, 1},
     {&__pyx_n_s_R_OK, __pyx_k_R_OK, sizeof(__pyx_k_R_OK), 0, 0, 1, 1},
     {&__pyx_n_s_TypeError, __pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 0, 1, 1},
-    {&__pyx_kp_s_UTF_8, __pyx_k_UTF_8, sizeof(__pyx_k_UTF_8), 0, 0, 1, 0},
-    {&__pyx_kp_s_Unexpected_action_for_hunspell, __pyx_k_Unexpected_action_for_hunspell, sizeof(__pyx_k_Unexpected_action_for_hunspell), 0, 0, 1, 0},
-    {&__pyx_kp_s_Unexpected_tuple_action_for_huns, __pyx_k_Unexpected_tuple_action_for_huns, sizeof(__pyx_k_Unexpected_tuple_action_for_huns), 0, 0, 1, 0},
+    {&__pyx_kp_u_UTF_8, __pyx_k_UTF_8, sizeof(__pyx_k_UTF_8), 0, 1, 0, 0},
+    {&__pyx_kp_u_Unexpected_action_for_hunspell, __pyx_k_Unexpected_action_for_hunspell, sizeof(__pyx_k_Unexpected_action_for_hunspell), 0, 1, 0, 0},
+    {&__pyx_kp_u_Unexpected_tuple_action_for_huns, __pyx_k_Unexpected_tuple_action_for_huns, sizeof(__pyx_k_Unexpected_tuple_action_for_huns), 0, 1, 0, 0},
     {&__pyx_n_s_UnicodeDecodeError, __pyx_k_UnicodeDecodeError, sizeof(__pyx_k_UnicodeDecodeError), 0, 0, 1, 1},
     {&__pyx_n_s_UnicodeEncodeError, __pyx_k_UnicodeEncodeError, sizeof(__pyx_k_UnicodeEncodeError), 0, 0, 1, 1},
     {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
     {&__pyx_n_s_WIN32_LONG_PATH_PREFIX, __pyx_k_WIN32_LONG_PATH_PREFIX, sizeof(__pyx_k_WIN32_LONG_PATH_PREFIX), 0, 0, 1, 1},
-    {&__pyx_kp_s__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 0, 1, 0},
+    {&__pyx_kp_u__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0, 0},
     {&__pyx_n_s__32, __pyx_k__32, sizeof(__pyx_k__32), 0, 0, 1, 1},
     {&__pyx_n_s__4, __pyx_k__4, sizeof(__pyx_k__4), 0, 0, 1, 1},
     {&__pyx_kp_u__5, __pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0, 0},
-    {&__pyx_kp_s__8, __pyx_k__8, sizeof(__pyx_k__8), 0, 0, 1, 0},
+    {&__pyx_kp_u__8, __pyx_k__8, sizeof(__pyx_k__8), 0, 1, 0, 0},
     {&__pyx_n_s_abspath, __pyx_k_abspath, sizeof(__pyx_k_abspath), 0, 0, 1, 1},
     {&__pyx_n_s_access, __pyx_k_access, sizeof(__pyx_k_access), 0, 0, 1, 1},
     {&__pyx_n_s_action, __pyx_k_action, sizeof(__pyx_k_action), 0, 0, 1, 1},
     {&__pyx_n_s_action_e, __pyx_k_action_e, sizeof(__pyx_k_action_e), 0, 0, 1, 1},
     {&__pyx_n_s_add, __pyx_k_add, sizeof(__pyx_k_add), 0, 0, 1, 1},
+    {&__pyx_n_u_add, __pyx_k_add, sizeof(__pyx_k_add), 0, 1, 0, 1},
     {&__pyx_n_s_add_dic, __pyx_k_add_dic, sizeof(__pyx_k_add_dic), 0, 0, 1, 1},
     {&__pyx_n_s_add_with_affix, __pyx_k_add_with_affix, sizeof(__pyx_k_add_with_affix), 0, 0, 1, 1},
-    {&__pyx_kp_s_aff, __pyx_k_aff, sizeof(__pyx_k_aff), 0, 0, 1, 0},
+    {&__pyx_kp_u_aff, __pyx_k_aff, sizeof(__pyx_k_aff), 0, 1, 0, 0},
     {&__pyx_n_s_analyze, __pyx_k_analyze, sizeof(__pyx_k_analyze), 0, 0, 1, 1},
-    {&__pyx_n_s_ascii, __pyx_k_ascii, sizeof(__pyx_k_ascii), 0, 0, 1, 1},
+    {&__pyx_n_u_analyze, __pyx_k_analyze, sizeof(__pyx_k_analyze), 0, 1, 0, 1},
+    {&__pyx_n_u_ascii, __pyx_k_ascii, sizeof(__pyx_k_ascii), 0, 1, 0, 1},
     {&__pyx_n_s_asyncio_coroutines, __pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 0, 1, 1},
     {&__pyx_n_s_c_example, __pyx_k_c_example, sizeof(__pyx_k_c_example), 0, 0, 1, 1},
     {&__pyx_n_s_c_key, __pyx_k_c_key, sizeof(__pyx_k_c_key), 0, 0, 1, 1},
@@ -9946,14 +9964,14 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_c_word, __pyx_k_c_word, sizeof(__pyx_k_c_word), 0, 0, 1, 1},
     {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
     {&__pyx_n_s_decode, __pyx_k_decode, sizeof(__pyx_k_decode), 0, 0, 1, 1},
-    {&__pyx_kp_s_dic, __pyx_k_dic, sizeof(__pyx_k_dic), 0, 0, 1, 0},
+    {&__pyx_kp_u_dic, __pyx_k_dic, sizeof(__pyx_k_dic), 0, 1, 0, 0},
     {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
-    {&__pyx_n_s_dictionaries, __pyx_k_dictionaries, sizeof(__pyx_k_dictionaries), 0, 0, 1, 1},
+    {&__pyx_n_u_dictionaries, __pyx_k_dictionaries, sizeof(__pyx_k_dictionaries), 0, 1, 0, 1},
     {&__pyx_n_s_dirname, __pyx_k_dirname, sizeof(__pyx_k_dirname), 0, 0, 1, 1},
     {&__pyx_kp_u_disable, __pyx_k_disable, sizeof(__pyx_k_disable), 0, 1, 0, 0},
     {&__pyx_n_s_doc, __pyx_k_doc, sizeof(__pyx_k_doc), 0, 0, 1, 1},
     {&__pyx_n_s_dpath, __pyx_k_dpath, sizeof(__pyx_k_dpath), 0, 0, 1, 1},
-    {&__pyx_n_s_en_US, __pyx_k_en_US, sizeof(__pyx_k_en_US), 0, 0, 1, 1},
+    {&__pyx_n_u_en_US, __pyx_k_en_US, sizeof(__pyx_k_en_US), 0, 1, 0, 1},
     {&__pyx_kp_u_enable, __pyx_k_enable, sizeof(__pyx_k_enable), 0, 1, 0, 0},
     {&__pyx_n_s_enc, __pyx_k_enc, sizeof(__pyx_k_enc), 0, 0, 1, 1},
     {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
@@ -9987,7 +10005,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_mro_entries, __pyx_k_mro_entries, sizeof(__pyx_k_mro_entries), 0, 0, 1, 1},
     {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
     {&__pyx_n_s_name_2, __pyx_k_name_2, sizeof(__pyx_k_name_2), 0, 0, 1, 1},
-    {&__pyx_n_s_nt, __pyx_k_nt, sizeof(__pyx_k_nt), 0, 0, 1, 1},
+    {&__pyx_n_u_nt, __pyx_k_nt, sizeof(__pyx_k_nt), 0, 1, 0, 1},
     {&__pyx_n_s_os, __pyx_k_os, sizeof(__pyx_k_os), 0, 0, 1, 1},
     {&__pyx_n_s_path, __pyx_k_path, sizeof(__pyx_k_path), 0, 0, 1, 1},
     {&__pyx_n_s_prepare, __pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 0, 1, 1},
@@ -9998,6 +10016,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_reduce_cython, __pyx_k_reduce_cython, sizeof(__pyx_k_reduce_cython), 0, 0, 1, 1},
     {&__pyx_n_s_reduce_ex, __pyx_k_reduce_ex, sizeof(__pyx_k_reduce_ex), 0, 0, 1, 1},
     {&__pyx_n_s_remove, __pyx_k_remove, sizeof(__pyx_k_remove), 0, 0, 1, 1},
+    {&__pyx_n_u_remove, __pyx_k_remove, sizeof(__pyx_k_remove), 0, 1, 0, 1},
     {&__pyx_n_s_replace, __pyx_k_replace, sizeof(__pyx_k_replace), 0, 0, 1, 1},
     {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
     {&__pyx_kp_s_self__cxx_hunspell_cannot_be_con, __pyx_k_self__cxx_hunspell_cannot_be_con, sizeof(__pyx_k_self__cxx_hunspell_cannot_be_con), 0, 0, 1, 0},
@@ -10006,15 +10025,19 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_setstate_cython, __pyx_k_setstate_cython, sizeof(__pyx_k_setstate_cython), 0, 0, 1, 1},
     {&__pyx_n_s_spec, __pyx_k_spec, sizeof(__pyx_k_spec), 0, 0, 1, 1},
     {&__pyx_n_s_spell, __pyx_k_spell, sizeof(__pyx_k_spell), 0, 0, 1, 1},
+    {&__pyx_n_u_spell, __pyx_k_spell, sizeof(__pyx_k_spell), 0, 1, 0, 1},
     {&__pyx_n_s_stem, __pyx_k_stem, sizeof(__pyx_k_stem), 0, 0, 1, 1},
-    {&__pyx_n_s_strict, __pyx_k_strict, sizeof(__pyx_k_strict), 0, 0, 1, 1},
+    {&__pyx_n_u_stem, __pyx_k_stem, sizeof(__pyx_k_stem), 0, 1, 0, 1},
+    {&__pyx_n_u_strict, __pyx_k_strict, sizeof(__pyx_k_strict), 0, 1, 0, 1},
     {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
     {&__pyx_n_s_suffix_suggest, __pyx_k_suffix_suggest, sizeof(__pyx_k_suffix_suggest), 0, 0, 1, 1},
+    {&__pyx_n_u_suffix_suggest, __pyx_k_suffix_suggest, sizeof(__pyx_k_suffix_suggest), 0, 1, 0, 1},
     {&__pyx_n_s_suggest, __pyx_k_suggest, sizeof(__pyx_k_suggest), 0, 0, 1, 1},
+    {&__pyx_n_u_suggest, __pyx_k_suggest, sizeof(__pyx_k_suggest), 0, 1, 0, 1},
     {&__pyx_n_s_super, __pyx_k_super, sizeof(__pyx_k_super), 0, 0, 1, 1},
     {&__pyx_n_s_system_encoding, __pyx_k_system_encoding, sizeof(__pyx_k_system_encoding), 0, 0, 1, 1},
     {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
-    {&__pyx_n_s_utf8, __pyx_k_utf8, sizeof(__pyx_k_utf8), 0, 0, 1, 1},
+    {&__pyx_n_u_utf8, __pyx_k_utf8, sizeof(__pyx_k_utf8), 0, 1, 0, 1},
     {&__pyx_n_s_valid_encoding, __pyx_k_valid_encoding, sizeof(__pyx_k_valid_encoding), 0, 0, 1, 1},
     {&__pyx_n_s_word, __pyx_k_word, sizeof(__pyx_k_word), 0, 0, 1, 1},
     {0, 0, 0, 0, 0, 0, 0}
@@ -10047,7 +10070,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *             return WIN32_LONG_PATH_PREFIX + path
  *         else:
  */
-  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_kp_s__2, __pyx_kp_s_); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_kp_u__2, __pyx_kp_u_); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
@@ -10672,7 +10695,7 @@ if (!__Pyx_RefNanny) {
  * 
  * ctypedef enum action_type:
  */
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WIN32_LONG_PATH_PREFIX, __pyx_kp_s__8) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WIN32_LONG_PATH_PREFIX, __pyx_kp_u__8) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
 
   /* "hunspell/hunspell.pyx":58
  *         raise ValueError("Unexpected action {} for hunspell".format(action_e))

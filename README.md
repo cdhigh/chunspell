@@ -6,7 +6,7 @@ Cython wrapper on Hunspell Dictionary
 
 This fork is based on <https://github.com/MSeal/cython_hunspell> and modified to reduce dependencies by removing caching and batch processing functionalities. Apart from Hunspell itself, there are no other third-party dependencies.
 ```bash
-sudo apt install automake pkg-config libtool libhunspell-dev
+sudo apt install autoconf automake pkg-config libtool libhunspell-dev
 pip install https://github.com/cdhigh/cython_hunspell/archive/refs/tags/2.0.3.tar.gz
 ```
 -------------------------------------------------
