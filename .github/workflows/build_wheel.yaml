@@ -26,7 +26,7 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt update
-          sudo apt install -y autoconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev
+          sudo apt install -y autoconf automake autopoint gettext-dev pkg-config libtool libhunspell-dev python3-dev
 
       - name: Set up QEMU
         if: runner.os == 'Linux'
@@ -78,6 +78,7 @@ jobs:
 
       - name: Create source tarball
         run: |
+          sleep 5
           tar --exclude='.git' --exclude='.github' -czvf chunspell.tar.gz .
 
       - name: Store the source distribution
