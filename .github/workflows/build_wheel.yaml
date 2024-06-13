@@ -45,7 +45,7 @@ jobs:
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
-          CIBW_SKIP: "cp36-* cp37-*" # Skip CPython 3.6 and CPython 3.7
+          CIBW_SKIP: "cp36-* cp37-* *-i686" # Skip CPython 3.6 and CPython 3.7
           CIBW_ARCHS_MACOS: "x86_64 universal2 arm64"
           CIBW_ARCHS_LINUX: "auto aarch64"
           CIBW_BEFORE_BUILD_LINUX: |
@@ -54,7 +54,7 @@ jobs:
             elif [ -f /etc/alpine-release ]; then
               apk add autoconf automake libtool gettext-dev python3-dev hunspell-dev linux-headers alpine-sdk
             elif [ -f /etc/redhat-release ]; then
-              yum install -y autoconf automake gettext-devel pkgconfig libtool hunspell-devel python3-devel
+              yum install -y autoconf dh-autoreconf automake gettext-devel pkgconfig libtool hunspell-devel python3-devel
             else
               echo "Unsupported platform"
               exit 1
