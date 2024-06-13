@@ -46,7 +46,7 @@ jobs:
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_SKIP: "cp36-* cp37-*" # Skip CPython 3.6 and CPython 3.7
-          CIBW_ARCHS_MACOS: "x86_64 universal2 arm64"
+          #CIBW_ARCHS_MACOS: "x86_64 universal2 arm64"
           CIBW_ARCHS_LINUX: "auto aarch64"
           CIBW_BEFORE_BUILD_LINUX: |
             if [ -f /etc/debian_version ]; then
