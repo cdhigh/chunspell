@@ -48,7 +48,17 @@ jobs:
           CIBW_SKIP: "cp36-* cp37-*" # Skip CPython 3.6 and CPython 3.7
           CIBW_ARCHS_MACOS: "x86_64 universal2 arm64"
           CIBW_ARCHS_LINUX: "auto aarch64"
-          CIBW_BEFORE_BUILD_LINUX: "apt update && apt install -y autoconf dh-autoreconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev"
+          CIBW_BEFORE_BUILD_LINUX: |
+            if [ -f /etc/debian_version ]; then
+              apt update && apt install -y autoconf dh-autoreconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev
+            elif [ -f /etc/alpine-release ]; then
+              apk add apk add autoconf automake libtool gettext-dev python3-dev hunspell-dev linux-headers alpine-sdk
+            elif [ -f /etc/redhat-release ]; then
+              yum install -y autoconf dh-autoreconf automake autopoint gettext-devel pkgconfig libtool libhunspell-devel python3-devel
+            else
+              echo "Unsupported platform"
+              exit 1
+            fi
 
       - name: Upload Wheels
         uses: actions/upload-artifact@v4
