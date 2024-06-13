@@ -14,7 +14,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        #[ubuntu-latest, windows-latest, macos-latest]
+        os: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -85,6 +86,11 @@ jobs:
           python-version: "3.x"
 
       - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y autoconf automake autopoint gettext pkg-config libtool
+
+      - name: Install build dependencies
         run: python -m pip install --upgrade setuptools wheel
 
       - name: Create source tarball
@@ -101,7 +107,7 @@ jobs:
           retention-days: 4
 
   publish:
-    if: true
+    if: false
     needs:
       - os-built-distributions
       - source-distribution
