@@ -53,7 +53,8 @@ building_ext = 'build_ext' in sys.argv
 force_rebuild = '--force' in sys.argv or '-f' in sys.argv and building
 
 datatypes = ['*.aff', '*.dic', '*.pxd', '*.pyx', '*.pyd', '*.pxd', '*.so', '*.so.*', '*.dylib', '*.dylib.*', '*.lib', '*.hpp', '*.cpp']
-packages = find_packages(where='hunspell', exclude=['*.tests', '*.tests.*', 'tests.*', 'tests'])
+packages = find_packages(exclude=['*.tests', '*.tests.*', 'tests.*', 'tests'])
+packages.append('hunspell.dictionaries')
 package_data = {'' : datatypes}
 
 if building_ext:
@@ -64,7 +65,7 @@ if building_ext:
 
     ext_modules = cythonize([
         Extension(
-            'chunspell.hunspell',
+            'hunspell.hunspell',
             [os.path.join('hunspell', 'hunspell.pyx')],
             **pkgconfig()
         )
@@ -73,7 +74,7 @@ else:
     from setuptools.command.build_ext import build_ext
     ext_modules = [
         Extension(
-            'chunspell.hunspell',
+            'hunspell.hunspell',
             [os.path.join('hunspell', 'hunspell.cpp')],
             **pkgconfig()
         )
@@ -117,7 +118,6 @@ setup(
     cmdclass={ 'build_ext': build_ext_compiler_check, 'build': build_darwin_fix, 'bdist_wheel': bdist_wheel },
     license='MIT + MPL 1.1/GPL 2.0/LGPL 2.1',
     packages=packages,
-    package_dir={'chunspell': 'hunspell'},
     test_suite='tests',
     zip_safe=False,
     url='https://github.com/cdhigh/chunspell',
