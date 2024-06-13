@@ -48,7 +48,7 @@ jobs:
           CIBW_SKIP: "cp36-* cp37-*" # Skip CPython 3.6 and CPython 3.7
           CIBW_ARCHS_MACOS: "x86_64 universal2 arm64"
           CIBW_ARCHS_LINUX: "auto aarch64"
-          CIBW_REPAIR_WHEEL_COMMAND_MACOS: "delocate-wheel --require-archs {delocate_archs} -w {dest_dir} -v"
+          CIBW_REPAIR_WHEEL_COMMAND_MACOS: "delocate-wheel --require-archs {delocate_archs} -w {dest_dir}/repaired_wheel -v {dest_dir}/*.whl"
           CIBW_BEFORE_BUILD_LINUX: |
             if [ -f /etc/debian_version ]; then
               apt update && apt install -y autoconf dh-autoreconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev
