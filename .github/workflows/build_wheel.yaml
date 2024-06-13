@@ -46,8 +46,9 @@ jobs:
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_SKIP: "cp36-* cp37-*" # Skip CPython 3.6 and CPython 3.7
-          #CIBW_ARCHS_MACOS: "x86_64 universal2 arm64"
+          CIBW_ARCHS_MACOS: "x86_64 universal2 arm64"
           CIBW_ARCHS_LINUX: "auto aarch64"
+          CIBW_REPAIR_WHEEL_COMMAND_MACOS: "delocate-wheel --require-archs {delocate_archs} -w {dest_dir} -v"
           CIBW_BEFORE_BUILD_LINUX: |
             if [ -f /etc/debian_version ]; then
               apt update && apt install -y autoconf dh-autoreconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev
@@ -69,6 +70,8 @@ jobs:
   source-distribution:
     name: Build source distribution
     runs-on: ubuntu-latest
+    needs:
+      - os-built-distributions
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -84,7 +87,7 @@ jobs:
       - name: Create source tarball
         run: |
           mkdir -p /tmp/tarball
-          find . -path './.git' -prune -o -path './.github' -prune -o -print | tar -czvf /tmp/tarball/chunspell.tar.gz -T -
+          tar -czvf /tmp/tarball/chunspell.tar.gz --exclude=.git --exclude=.github .
           mv /tmp/tarball/chunspell.tar.gz .
 
       - name: Store the source distribution
@@ -95,7 +98,7 @@ jobs:
           retention-days: 4
 
   publish:
-    if: false
+    if: true
     needs:
       - os-built-distributions
       - source-distribution

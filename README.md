@@ -1,14 +1,12 @@
 
-# CyHunspell
+# cHunSpell
 Cython wrapper on Hunspell Dictionary
 
 ## Description
 
-This fork is based on <https://github.com/MSeal/cython_hunspell> and modified to reduce dependencies by removing caching and batch processing functionalities. Apart from Hunspell itself, there are no other third-party dependencies.
-```bash
-sudo apt install autoconf automake pkg-config libtool libhunspell-dev
-pip install https://github.com/cdhigh/cython_hunspell/archive/refs/tags/2.0.3.tar.gz
-```
+This fork is based on <https://github.com/MSeal/cython_hunspell> and modified to reduce dependencies by removing caching and batch functionalities. Apart from Hunspell itself, there are no other third-party dependencies.     
+Additional, providing precompiled wheels for multiple platforms.
+
 -------------------------------------------------
 
 This repository provides a wrapper on Hunspell to be used natively in Python. The
@@ -16,27 +14,20 @@ module uses cython to link between the C++ and Python code, with some additional
 features. There's very little Python overhead as all the heavy lifting is done
 on the C++ side of the module interface, which gives optimal performance.
 
-The hunspell library will cache any corrections, you can use persistent caching by
-adding the `use_disk_cache` argument to a Hunspell constructor. Otherwise it uses
-in-memory caching.
-
 ## Installing
 
 For the simplest install simply run:
 
-    pip install cyhunspell
+```python
+pip install chunspell
+```
 
-This will install the hunspell 1.7.0 C++ bindings on your behalf for your platform.
+This will install the hunspell 1.7.2 C++ bindings on your behalf for your platform.
 
-## Dependencies
-
-cacheman -- for (optionally asynchronous) persistent caching
-
-## Non-Python Dependencies
 
 ### hunspell
 
-The library installs [hunspell](http://hunspell.github.io/) version 1.7.0. As new version of hunspell become
+The library installs [hunspell](http://hunspell.github.io/) version 1.7.2. As new version of hunspell become
 available this library will provide new versions to match.
 
 ## Features
@@ -109,52 +100,15 @@ Like stemming but return morphological analysis of the input instead.
 h.analyze('permanently') # (' st:permanent fl:Y',)
 ```
 
-#### Generate
-
-Generate methods are *NOT* provided at this time due to the 1.7.0 build not producing
-any results for any inputs, included the documented one. If this is fixed or someone
-identifies the issue in the call pattern this will be added to the library in the
-future.
-
-### Bulk Requests
-
-You can also request bulk actions against Hunspell. This will trigger a threaded
-(without a gil) request to perform the action requested. Currently just 'suggest'
-and 'stem' are bulk requestable.
-
-```python
-h.bulk_suggest(['correct', 'incorect'])
-# {'incorect': ('incorrect', 'correction', 'corrector', 'correct', 'injector'), 'correct': ('correct',)}
-h.bulk_suffix_suggest(['cat', 'do'])
-# {'do': ('doing', 'doth', 'doer', 'doings', 'doers', 'doest'), 'cat': ('cater', 'cats', "cat's", 'caters')}
-h.bulk_stem(['stems', 'currencies'])
-# {'currencies': ('currency',), 'stems': ('stem',)}
-h.bulk_analyze(['dog', 'permanently'])
-# {'permanently': (' st:permanent fl:Y',), 'dog': (' st:dog',)}
-```
-
-By default it spawns number of CPUs threads to perform the operation. You can
-overwrite the concurrency as well.
-
-```python
-h.set_concurrency(4) # Four threads will now be used for bulk requests
-```
-
 ### Dictionaries
 
 You can also specify the language or dictionary you wish to use.
 
 ```python
-h = Hunspell('en_CA') # Canadian English
+h = Hunspell('en_US') # Canadian English
 ```
 
-By default you have the following dictionaries available
-* en_AU
-* en_CA
-* en_GB
-* en_NZ
-* en_US
-* en_ZA
+By default you have the only `en_US` dictionaries available.
 
 However you can download your own and point Hunspell to your custom dictionaries.
 
@@ -193,27 +147,6 @@ Much like adding, you can remove words.
 h.remove(word)
 ```
 
-### Asynchronous Caching
-
-If you want to have Hunspell cache suggestions and stems you can pass it a directory
-to house such caches.
-
-```python
-h = Hunspell(disk_cache_dir='/tmp/hunspell/cache/dir')
-```
-
-This will save all suggestion and stem requests periodically and in the background.
-The cache will fork after a number of new requests over particular time ranges and
-save the cache contents while the rest of the program continues onward. Yo'll never
-have to explicitly save your caches to disk, but you can if you so choose.
-
-```python
-h.save_cache()
-```
-
-Otherwise the Hunspell object will cache such requests locally in memory and not
-persist that memory.
-
 ## Language Preferences
 
 * Google Style Guide
@@ -224,7 +157,7 @@ persist that memory.
 - On Windows very long file paths, or paths saved in a different encoding than the system require special handling by Hunspell to load dictionary files. To circumvent this on Windows setups, either set `system_encoding='UTF-8'` in the `Hunspell` constructor or set the environment variable `HUNSPELL_PATH_ENCODING=UTF-8`. Then you must re-encode your `hunspell_data_dir` in UTF-8 by passing that argument name to the `Hunspell` constructor or setting the `HUNSPELL_DATA` environment variable. This is a restriction of Hunspell / Windows operations.
 
 ## Author
-Author(s): Tim Rodriguez and Matthew Seal
+Author(s): Tim Rodriguez, Matthew Seal, cdhigh
 
 ## License
 MIT
