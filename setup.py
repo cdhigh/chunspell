@@ -120,8 +120,8 @@ setup(
     packages=packages,
     test_suite='tests',
     zip_safe=False,
-    url='https://github.com/cdhigh/cython_hunspell',
-    download_url='https://github.com/cdhigh/cython_hunspell/tarball/v' + version(),
+    url='https://github.com/cdhigh/chunspell',
+    download_url='https://github.com/cdhigh/chunspell/tarball/v' + version(),
     package_data=package_data,
     keywords=['hunspell', 'spelling', 'correction'],
     classifiers=[

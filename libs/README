@@ -31,7 +31,7 @@ From top navigation bar, select Release and x64.
 Then from the menu select 'Build -> Build Solution'.
 
 Go to external\hunspell-1.7.0\msvc\x64\Release\' copy 'libhunspell.lib' to
-'cython_hunspell/libs/msvc/libhunspell-msvc14-x64.lib'.
+'chunspell/libs/msvc/libhunspell-msvc14-x64.lib'.
 
 Now for 32 bit build:
 
@@ -39,7 +39,7 @@ From top navigation bar, select Release and Win32. Make sure the configurations 
 are the same for the Win32 profile. Then from the menu select 'Build -> Build Solution'.
 
 Go to external\hunspell-1.7.0\msvc\Release\libhunspell\' copy 'libhunspell.lib' to
-'cython_hunspell/libs/msvc/libhunspell-msvc14-x86.lib'.
+'chunspell/libs/msvc/libhunspell-msvc14-x86.lib'.
 
 
 You should now have 2 new files:
