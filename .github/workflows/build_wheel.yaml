@@ -48,7 +48,7 @@ jobs:
           CIBW_SKIP: "cp36-* cp37-*" # Skip CPython 3.6 and CPython 3.7
           CIBW_ARCHS_MACOS: "x86_64 universal2 arm64"
           CIBW_ARCHS_LINUX: "auto aarch64"
-          CIBW_BEFORE_BUILD_LINUX: "sudo apt update && sudo apt install -y autoconf dh-autoreconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev"
+          CIBW_BEFORE_BUILD_LINUX: "apt update && apt install -y autoconf dh-autoreconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev"
 
       - name: Upload Wheels
         uses: actions/upload-artifact@v4
