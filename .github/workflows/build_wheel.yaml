@@ -52,9 +52,9 @@ jobs:
             if [ -f /etc/debian_version ]; then
               apt update && apt install -y autoconf dh-autoreconf automake autopoint gettext pkg-config libtool libhunspell-dev python3-dev
             elif [ -f /etc/alpine-release ]; then
-              apk add apk add autoconf automake libtool gettext-dev python3-dev hunspell-dev linux-headers alpine-sdk
+              apk add autoconf automake libtool gettext-dev python3-dev hunspell-dev linux-headers alpine-sdk
             elif [ -f /etc/redhat-release ]; then
-              yum install -y autoconf dh-autoreconf automake autopoint gettext-devel pkgconfig libtool libhunspell-devel python3-devel
+              yum install -y autoconf dh-autoreconf automake gettext-devel pkgconfig libtool libhunspell-devel python3-devel
             else
               echo "Unsupported platform"
               exit 1
