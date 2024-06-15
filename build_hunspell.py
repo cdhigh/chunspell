@@ -46,10 +46,12 @@ def build_hunspell_package(directory, force_build=False):
         hunspell_library_name = 'libhunspell-1.7.so.0'
         export_lib_name = ':'+hunspell_library_name
         build_lib_path = os.path.join(BASE_DIR, 'external', 'build', 'lib', 'libhunspell-1.7.so.0.0.1')
+        configure_flags = ['LDFLAGS=-static-libstdc++', 'CXXFLAGS=-static-libstdc++']
     else: # OSX
         hunspell_library_name = 'libhunspell-1.7.2.dylib'
         export_lib_name = 'hunspell-1.7.2'
         build_lib_path = os.path.join(BASE_DIR, 'external', 'build', 'lib', 'libhunspell-1.7.0.dylib')
+        configure_flags = ['LDFLAGS=-static-libgcc', 'CXXFLAGS=-static-libgcc']
     hunspell_so_path = os.path.join(hunspell_so_dir, hunspell_library_name)
 
     olddir = os.getcwd()
@@ -59,7 +61,8 @@ def build_hunspell_package(directory, force_build=False):
         try:
             os.chdir(directory)
             run_proc_delay_print('autoreconf', '-vfi')
-            run_proc_delay_print('./configure', '--prefix='+build_path)
+            #run_proc_delay_print('./configure', '--prefix='+build_path)
+            run_proc_delay_print('./configure', '--prefix='+build_path, *configure_flags)
             run_proc_delay_print('make')
             run_proc_delay_print('make', 'install')
         finally:
