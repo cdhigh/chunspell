@@ -1,7 +1,8 @@
 include README.md
 include LICENSE
 include HUNSPELL_LICENSE_LESSER
-include requirements.txt
+include build_hunspell.py
+include tar_download.py
 
 exclude requirements-dev.txt
 exclude requirements-test.txt

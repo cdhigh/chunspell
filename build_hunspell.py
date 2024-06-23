@@ -42,7 +42,7 @@ def build_hunspell_package(directory, force_build=False):
     if not os.path.exists(build_path):
         os.makedirs(build_path)
 
-    if platform.system() == 'Linux':
+    if platform.system() in ('Linux', 'FreeBSD'):
         hunspell_library_name = 'libhunspell-1.7.so.0'
         export_lib_name = ':'+hunspell_library_name
         build_lib_path = os.path.join(BASE_DIR, 'external', 'build', 'lib', 'libhunspell-1.7.so.0.0.1')
@@ -85,7 +85,7 @@ def pkgconfig(**kw):
     kw['extra_link_args'] = []
     kw['language'] = 'c++'
     # Need to set the linker locations
-    if platform.system() == 'Linux':
+    if platform.system() in ('Linux', 'FreeBSD'):
         kw['runtime_library_dirs'] = [os.path.join('$ORIGIN')]
     if platform.system() == 'Darwin':
         # See https://stackoverflow.com/questions/9795793/shared-library-dependencies-with-distutils
