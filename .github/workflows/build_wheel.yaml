@@ -10,6 +10,7 @@ on:
 
 jobs:
   os-built-distributions:
+    if: false
     name: Build on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -67,11 +68,64 @@ jobs:
           name: python-package-distributions-${{ matrix.os }}
           path: ./wheelhouse/*.whl
 
+freebsd-build:
+    name: Build on FreeBSD
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+          submodules: true
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: all
+
+      - name: Download FreeBSD qcow2 image
+        run: |
+          wget https://download.freebsd.org/ftp/releases/VM-IMAGES/13.3-RELEASE/amd64/Latest/FreeBSD-13.3-RELEASE-amd64.qcow2.xz
+          xz -d FreeBSD-13.3-RELEASE-amd64.qcow2.xz
+
+      - name: Run FreeBSD VM
+        run: |
+          qemu-system-x86_64 -m 4G -hda FreeBSD-13.3-RELEASE-amd64.qcow2.xz -net user,hostfwd=tcp::2222-:22 -net nic -nographic -daemonize
+          sleep 60
+          ssh-keygen -R [localhost]:2222
+          ssh-keyscan -p 2222 localhost >> ~/.ssh/known_hosts
+
+      - name: Copy code to VM
+        run: |
+          tar czf source.tar.gz --exclude='.git' --exclude='source.tar.gz' .
+          scp -P 2222 source.tar.gz freebsd@localhost:/home/freebsd/
+          ssh -p 2222 -o StrictHostKeyChecking=no freebsd@localhost 'tar xzf source.tar.gz'
+
+      - name: Install dependencies in VM
+        run: |
+          ssh -p 2222 -o StrictHostKeyChecking=no freebsd@localhost 'pkg install -y python3 py38-pip'
+          ssh -p 2222 -o StrictHostKeyChecking=no freebsd@localhost 'pip install cibuildwheel'
+
+      - name: Build wheels in VM
+        run: |
+          ssh -p 2222 -o StrictHostKeyChecking=no freebsd@localhost 'cd $(basename $(pwd)) && cibuildwheel --output-dir wheelhouse'
+
+      - name: Copy built wheels back to host
+        run: |
+          scp -P 2222 freebsd@localhost:/home/freebsd/$(basename $(pwd))/wheelhouse/*.whl .
+
+      - name: Upload Wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package-distributions-freebsd
+          path: '*.whl'
+
   source-distribution:
     name: Build source distribution
     runs-on: ubuntu-latest
     needs:
       - os-built-distributions
+      - freebsd-build
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -106,6 +160,7 @@ jobs:
     if: true
     needs:
       - os-built-distributions
+      - freebsd-build
       - source-distribution
     runs-on: ubuntu-latest
     steps:
