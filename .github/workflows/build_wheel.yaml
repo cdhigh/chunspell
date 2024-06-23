@@ -68,7 +68,7 @@ jobs:
           name: python-package-distributions-${{ matrix.os }}
           path: ./wheelhouse/*.whl
 
-freebsd-build:
+  freebsd-build:
     name: Build on FreeBSD
     runs-on: ubuntu-latest
     steps:
