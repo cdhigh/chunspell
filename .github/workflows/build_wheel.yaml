@@ -28,9 +28,9 @@ jobs:
         with:
           platforms: all
 
-      - name: Set up Microsoft VS compiler
-        if: runner.os == 'Windows'
-        uses: ilammy/msvc-dev-cmd@v1
+      #- name: Set up Microsoft VS compiler
+      #  if: runner.os == 'Windows'
+      #  uses: ilammy/msvc-dev-cmd@v1
         
       - name: Set up dependencies on macOS
         if: runner.os == 'macOS'
