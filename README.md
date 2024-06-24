@@ -5,7 +5,7 @@ Cython wrapper on Hunspell Dictionary
 ## Description
 
 This fork is based on <https://github.com/MSeal/cython_hunspell> and modified to reduce dependencies by removing caching and batch functionalities. Apart from Hunspell itself, there are no other third-party dependencies.     
-Additional, providing precompiled wheels for multiple platforms.
+Additional, providing precompiled wheels for multiple platforms.   
 
 -------------------------------------------------
 
@@ -16,11 +16,19 @@ on the C++ side of the module interface, which gives optimal performance.
 
 ## Installing
 
-For the simplest install simply run:
-
-```python
+For the simplest install simply run (For Windows/Linux/MacOS):
+```
 pip install chunspell
 ```
+
+For FreeBSD/AMD64 (`pypi.org` does not accept freebsd wheel):
+```
+wget https://github.com/cdhigh/chunspell/releases/download/2.0.4/chunspell-2.0.4-freebsd-amd64.zip && \
+unzip -y -d ./chunspell_whl/ chunspell-2.0.4-freebsd-amd64.zip && \
+pip install chunspell --no-index --find-links=./chunspell_whl/. && \
+rm -rf ./chunspell_whl
+```
+
 
 This will install the hunspell 1.7.2 C++ bindings on your behalf for your platform.
 
