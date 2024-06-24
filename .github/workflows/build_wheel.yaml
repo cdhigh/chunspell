@@ -84,16 +84,20 @@ jobs:
         with:
           usesh: true
           prepare: |
-            pkg install -y bash git autoconf automake gettext pkgconf libtool hunspell python38 \
-              python39 py39-pip python310 python311
+            pkg install -y curl bash git autoconf automake gettext pkgconf libtool hunspell python38 python39 python310 python311
           run: |
             set -e -x
+            curl -LO https://bootstrap.pypa.io/get-pip.py
+            python3.8 get-pip.py
             python3.8 -m pip install wheel setuptools
             python3.8 setup.py bdist_wheel -d wheelhouse
+            python3.9 get-pip.py
             python3.9 -m pip install wheel setuptools
             python3.9 setup.py bdist_wheel -d wheelhouse
+            python3.10 get-pip.py
             python3.10 -m pip install wheel setuptools
             python3.10 setup.py bdist_wheel -d wheelhouse
+            python3.11 get-pip.py
             python3.11 -m pip install wheel setuptools
             python3.11 setup.py bdist_wheel -d wheelhouse
 
