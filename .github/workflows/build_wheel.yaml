@@ -74,52 +74,53 @@ jobs:
           name: python-package-distributions-${{ matrix.os }}
           path: ./wheelhouse/*.whl
 
-  freebsd-build:
-    name: Build on FreeBSD
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.inputs.branch }}
-          submodules: true
+  # pypi.org does not accept freeBSD wheel
+  # freebsd-build:
+  #   name: Build on FreeBSD
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
+  #       with:
+  #         ref: ${{ github.event.inputs.branch }}
+  #         submodules: true
 
-      - name: compile in FreeBSD
-        id: test
-        uses: vmactions/freebsd-vm@v1
-        with:
-          release: "13.2"
-          usesh: true
-          prepare: |
-            pkg install -y curl bash git autoconf automake gettext pkgconf libtool hunspell python38 python39 python310 python311
-          run: |
-            set -e -x
-            curl -LO https://bootstrap.pypa.io/get-pip.py
-            python3.8 get-pip.py
-            python3.8 -m pip install wheel setuptools
-            python3.8 setup.py bdist_wheel -d wheelhouse
-            python3.9 get-pip.py
-            python3.9 -m pip install wheel setuptools
-            python3.9 setup.py bdist_wheel -d wheelhouse
-            python3.10 get-pip.py
-            python3.10 -m pip install wheel setuptools
-            python3.10 setup.py bdist_wheel -d wheelhouse
-            python3.11 get-pip.py
-            python3.11 -m pip install wheel setuptools
-            python3.11 setup.py bdist_wheel -d wheelhouse
+  #     - name: compile in FreeBSD
+  #       id: test
+  #       uses: vmactions/freebsd-vm@v1
+  #       with:
+  #         release: "13.2"
+  #         usesh: true
+  #         prepare: |
+  #           pkg install -y curl bash git autoconf automake gettext pkgconf libtool hunspell python38 python39 python310 python311
+  #         run: |
+  #           set -e -x
+  #           curl -LO https://bootstrap.pypa.io/get-pip.py
+  #           python3.8 get-pip.py
+  #           python3.8 -m pip install wheel setuptools
+  #           python3.8 setup.py bdist_wheel -d wheelhouse
+  #           python3.9 get-pip.py
+  #           python3.9 -m pip install wheel setuptools
+  #           python3.9 setup.py bdist_wheel -d wheelhouse
+  #           python3.10 get-pip.py
+  #           python3.10 -m pip install wheel setuptools
+  #           python3.10 setup.py bdist_wheel -d wheelhouse
+  #           python3.11 get-pip.py
+  #           python3.11 -m pip install wheel setuptools
+  #           python3.11 setup.py bdist_wheel -d wheelhouse
 
-      - name: Upload Wheels
-        uses: actions/upload-artifact@v4
-        with:
-          name: python-package-distributions-freebsd
-          path: wheelhouse/*.whl
+  #     - name: Upload Wheels
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: python-package-distributions-freebsd
+  #         path: wheelhouse/*.whl
 
   source-distribution:
     name: Build source distribution
     runs-on: ubuntu-latest
     needs:
       - os-built-distributions
-      - freebsd-build
+      #- freebsd-build
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -154,7 +155,7 @@ jobs:
     if: true
     needs:
       - os-built-distributions
-      - freebsd-build
+      #- freebsd-build
       - source-distribution
     runs-on: ubuntu-latest
     steps:
