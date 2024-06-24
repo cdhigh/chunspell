@@ -84,11 +84,20 @@ jobs:
         with:
           usesh: true
           prepare: |
-            pkg install -y bash git autoconf automake gettext pkgconf libtool hunspell python39 py39-pip
+            pkg install -y bash git autoconf automake gettext pkgconf libtool hunspell python38 py38-pip \
+              python39 py39-pip python310 py310-pip python311 py311-pip python312 py312-pip
           run: |
             set -e -x
+            python3.8 -m pip install wheel setuptools
+            python3.8 setup.py bdist_wheel -d wheelhouse
             python3.9 -m pip install wheel setuptools
             python3.9 setup.py bdist_wheel -d wheelhouse
+            python3.10 -m pip install wheel setuptools
+            python3.10 setup.py bdist_wheel -d wheelhouse
+            python3.11 -m pip install wheel setuptools
+            python3.11 setup.py bdist_wheel -d wheelhouse
+            python3.12 -m pip install wheel setuptools
+            python3.12 setup.py bdist_wheel -d wheelhouse
 
       - name: Upload Wheels
         uses: actions/upload-artifact@v4
