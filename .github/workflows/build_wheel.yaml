@@ -31,8 +31,6 @@ jobs:
       - name: Set up Microsoft VS compiler
         if: runner.os == 'Windows'
         uses: ilammy/msvc-dev-cmd@v1
-        with:
-          toolset: "14.0"
         
       - name: Set up dependencies on macOS
         if: runner.os == 'macOS'
