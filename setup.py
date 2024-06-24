@@ -9,18 +9,13 @@ from distutils.command.build import build
 from build_hunspell import pkgconfig, repair_darwin_link_dep_path
 from collections import defaultdict
 
-try:
-    from wheel.bdist_wheel import bdist_wheel as _bdist_wheel
+from wheel.bdist_wheel import bdist_wheel as _bdist_wheel
 
-    class bdist_wheel(_bdist_wheel):
-        def finalize_options(self):
-            _bdist_wheel.finalize_options(self)
-            # Mark us as not a pure python package
-            self.root_is_pure = False
-except ImportError:
-    print("Could not register bdist_wheel. Make sure the wheel package is installed!")
-    bdist_wheel = None
-
+class bdist_wheel(_bdist_wheel):
+    def finalize_options(self):
+        _bdist_wheel.finalize_options(self)
+        # Mark us as not a pure python package
+        self.root_is_pure = False
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 BUILD_ARGS = defaultdict(lambda: ['-O3', '-g0'])
